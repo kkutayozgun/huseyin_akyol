@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load homepage %}
+{% load static %}
 
 {% block meta %}
     {% get_home_obj as obj %}
@@ -13,9 +14,9 @@
         <div class="container">
             <div class="row align-items-stretch">
                 <div class="col-12 col-md-5 offset-md-1 order-md-2">
-                    <img class=" d-md-none img-mobile hero-img" src="assets/img/1.jpg" alt="">
+                    <img class=" d-md-none img-mobile hero-img" src="{% static 'assets/img/1.jpg' %}" alt="">
                     <div class="position-relative h-100 vw-50 d-none d-md-block">
-                        <img class=" bg-image" src="assets/img/1.jpg" alt="">
+                        <img class=" bg-image" src="{% static 'assets/img/1.jpg' %}" alt="">
                         <div class="edge-shape edge-shape-left ">
                             <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -230,19 +231,19 @@
                             <h3 class="h5 text-white">Trusted by</h3>
                         </li>
                         <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="assets/svg/logo-1.svg" alt="">
+                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-1.svg' %}" alt="">
                         </li>
                         <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="assets/svg/logo-2.svg" alt="">
+                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-2.svg' %}" alt="">
                         </li>
                         <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="assets/svg/logo-3.svg" alt="">
+                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-3.svg' %}" alt="">
                         </li>
                         <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="assets/svg/logo-4.svg" alt="">
+                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-4.svg' %}" alt="">
                         </li>
                         <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="assets/svg/logo-5.svg" alt="">
+                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-5.svg' %}" alt="">
                         </li>
                     </ul>
                 </div>
@@ -260,7 +261,7 @@
                         <hr class="my-5">
                     </div>
                     <div class="media bg-secondary p-3 rounded">
-                        <img class="avatar-sm rounded-circle mr-3" src="assets/img/avatar-1.jpg" alt="">
+                        <img class="avatar-sm rounded-circle mr-3" src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
                         <div class="media-body">
                             <h4 class="h6 mb-0">Melissa Wagner</h4>
                             <p class="text-muted mb-0">"Congratulations Team Foxconf we couldn't have done it without
@@ -269,7 +270,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-9 order-1 mb-5 mb-lg-0">
-                    <img src="assets/img/3.jpg" alt="" class="img-fluid rounded shadow-lg z-index-2 position-relative">
+                    <img src="{% static 'assets/img/3.jpg' %}" alt="" class="img-fluid rounded shadow-lg z-index-2 position-relative">
                     <div class="position-absolute  p-0 col-4 col-xl-4  top left mt-5 mn-lg-l mn-sm-l d-none d-md-block">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              x="0px" y="0px"
@@ -484,26 +485,26 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="assets/svg/icon-checked.svg" alt="">
+                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
                                 <div class="media-body h6">
                                     Mobile Friendly
                                 </div>
                             </div>
                             <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="assets/svg/icon-checked.svg" alt="">
+                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
                                 <div class="media-body h6">
                                     Bootstrap 4
                                 </div>
                             </div>
                             <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="assets/svg/icon-checked.svg" alt="">
+                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
                                 <div class="media-body h6">
                                     Modern design <span class="badge badge-secondary badge-pill ml-1"><span
                                         class="mn-top">New</span></span>
                                 </div>
                             </div>
                             <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="assets/svg/icon-checked.svg" alt="">
+                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
                                 <div class="media-body h6">
                                     Block section
                                 </div>
@@ -511,19 +512,19 @@
                         </div>
                         <div class="col-md-6">
                             <div class="media align-items-center mb-1">
-                                <img class="mr-2 icon-check" src="assets/svg/icon-checked.svg" alt="">
+                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
                                 <div class="media-body h6">
                                     Easy to use
                                 </div>
                             </div>
                             <div class="media align-items-center mb-1">
-                                <img class="mr-2 icon-check" src="assets/svg/icon-checked.svg" alt="">
+                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
                                 <div class="media-body h6">
                                     Responsive
                                 </div>
                             </div>
                             <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="assets/svg/icon-checked.svg" alt="">
+                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
                                 <div class="media-body h6">
                                     24h support
                                 </div>
@@ -535,7 +536,7 @@
                     </a>
                 </div>
                 <div class="col-lg-5 col-md-9 order-2">
-                    <img src="assets/img/4.jpg" alt="" class="img-fluid rounded shadow-lg z-index-2 position-relative">
+                    <img src="{% static 'assets/img/4.jpg' %}" alt="" class="img-fluid rounded shadow-lg z-index-2 position-relative">
                     <div class="position-absolute  p-0 col-4 col-xl-4  top right mt-5 mn-lg-r mn-sm-r d-none d-md-block">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              x="0px" y="0px"
@@ -781,11 +782,11 @@
                 <div class="col-md-4 mb-4 mb-lg-0">
                     <div class="position-relative px-3">
                         <div class="position-relative z-index-2">
-                            <img class="max-width-5 mb-2" src="assets/svg/startup-icon.svg" alt="">
+                            <img class="max-width-5 mb-2" src="{% static 'assets/svg/startup-icon.svg' %}" alt="">
                             <h4>Coaching</h4>
                             <p class="mb-6 ">User research focuses on understanding user behaviors, needs, and
                                 motivations through observation techniques.</p>
-                            <img src="assets/img/7.jpg" alt="" class="img-fluid rounded radius-top-left z-index-2 ">
+                            <img src="{% static 'assets/img/7.jpg' %}" alt="" class="img-fluid rounded radius-top-left z-index-2 ">
                         </div>
                         <span class="position-absolute number text-white d-none d-lg-block "
                               data-jarallax-element="0 60">1</span>
@@ -794,11 +795,11 @@
                 <div class="col-md-4 mb-4 mb-lg-0">
                     <div class="position-relative px-3">
                         <div class="position-relative z-index-2">
-                            <img class="max-width-5 mb-2" src="assets/svg/idea-icon.svg" alt="">
+                            <img class="max-width-5 mb-2" src="{% static 'assets/svg/idea-icon.svg' %}" alt="">
                             <h4>Consulting</h4>
                             <p class="mb-6 ">User research focuses on understanding user behaviors, needs, and
                                 motivations through observation techniques.</p>
-                            <img src="assets/img/5.jpg" alt="" class="img-fluid rounded radius-bottom-right z-index-2 ">
+                            <img src="{% static 'assets/img/5.jpg' %}" alt="" class="img-fluid rounded radius-bottom-right z-index-2 ">
                         </div>
                         <span class="position-absolute number text-white d-none d-lg-block"
                               data-jarallax-element="0 60">2</span>
@@ -807,11 +808,11 @@
                 <div class="col-md-4">
                     <div class="position-relative px-3">
                         <div class="position-relative z-index-2">
-                            <img class="max-width-5 mb-2" src="assets/svg/target-icon.svg" alt="">
+                            <img class="max-width-5 mb-2" src="{% static 'assets/svg/target-icon.svg' %}" alt="">
                             <h4>Courses</h4>
                             <p class="mb-6 ">User research focuses on understanding user behaviors, needs, and
                                 motivations through observation techniques.</p>
-                            <img src="assets/img/6.jpg" alt="" class="img-fluid rounded radius-top-right z-index-2 ">
+                            <img src="{% static 'assets/img/6.jpg' %}" alt="" class="img-fluid rounded radius-top-right z-index-2 ">
                         </div>
                         <span class="position-absolute number text-white d-none d-lg-block"
                               data-jarallax-element="0 60">3</span>
@@ -832,55 +833,9 @@
             </div>
         </div>
     </section>
-    <section class="pt-8 pt-md-0 border-bottom">
+    <section id="changejourney" class="bg-secondary spacer-double-lg">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <img class=" d-md-none img-mobile" src="assets/img/2.jpg" alt="">
-                    <div class="position-relative h-100 vw-50 float-right  d-none d-md-block">
-                        <div class="w-100 h-100 ">
-                            <img class="bg-image" src="assets/img/2.jpg" alt="">
-                        </div>
-                        <div class="edge-shape edge-shape-right edge-nudge d-none d-md-block">
-                            <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                 viewBox="0 0 38.3185 589.7157" enable-background="new 0 0 38.3185 589.7157"
-                                 xml:space="preserve">
-                              <g>
-                                 <path d="M38.1863,589.7157C25.4621,393.2148,12.738,196.714,0,0c12.7731,0,25.4604,0,38.3185,0c0,196.5318,0,393.1221,0,589.7125
-                                    C38.2744,589.7136,38.2304,589.7147,38.1863,589.7157z"/>
-                              </g>
-                           </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-5 offset-lg-1 spacer-double-lg">
-                    <h3 class="h1">Get a free consultant and upgrade today</h3>
-                    <p class="lead">Our work with clients has always been at the intersection of deep industry expertise
-                        and extensive capabilities.</p>
-                    <form action="#">
-                        <div class="d-flex flex-column  form-group">
-                            <input class="form-control mb-3 h-100" name="email" placeholder="Email Address"
-                                   type="email">
-                            <button class="btn  btn-secondary btn-radius-bottom-right btn-loading" type="submit"
-                                    data-loading-text="Sending">
-                                <span class="mn-top">Get a free account</span>
-                            </button>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center">
-                            <input type="checkbox" class="custom-control-input" id="consultantCheckbox"
-                                   name="consultantCheckbox">
-                            <label class="custom-control-label" for="consultantCheckbox">
-                                <small>
-                                    I agree to the
-                                    <a class="link-muted" href="#">Terms and Conditions</a>
-                                </small>
-                            </label>
-                        </div>
-                        <div class="small text-muted mt-3"> Start your free 14-day trial - cancel anytime.</div>
-                    </form>
-                </div>
-            </div>
+            <div class="row"></div>
         </div>
     </section>
     <section id="packages" class="bg-primary mt-n spacer-double-lg">
@@ -1209,7 +1164,7 @@
                         <div class="card-footer border-0  pt-0 px-5 pb-5">
                             <div class="media">
                                 <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="assets/img/avatar-1.jpg" alt="">
+                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="h6 mb-0">Renee Mu</h4>
@@ -1245,7 +1200,7 @@
                         <div class="card-footer border-0  pt-0 px-5 pb-5">
                             <div class="media">
                                 <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="assets/img/avatar-2.jpg" alt="">
+                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-2.jpg' %}" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="h6 mb-0">David Taylor</h4>
@@ -1281,7 +1236,7 @@
                         <div class="card-footer border-0  pt-0 px-5 pb-5">
                             <div class="media">
                                 <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="assets/img/avatar-3.jpg" alt="">
+                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-3.jpg' %}" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="h6 mb-0">Jeremy Spivak</h4>
@@ -1320,7 +1275,7 @@
                         <div class="card-footer border-0  pt-0 px-5 pb-5">
                             <div class="media">
                                 <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="assets/img/avatar-4.jpg" alt="">
+                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-4.jpg' %}" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="h6 mb-0">David Taylor</h4>
@@ -1356,7 +1311,7 @@
                         <div class="card-footer border-0  pt-0 px-5 pb-5">
                             <div class="media">
                                 <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="assets/img/avatar-5.jpg" alt="">
+                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-5.jpg' %}" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="h6 mb-0">Jeremy Spivak</h4>
@@ -1393,7 +1348,7 @@
                         <div class="card-footer border-0 pt-0 px-5 pb-5">
                             <div class="media">
                                 <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="assets/img/avatar-1.jpg" alt="">
+                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="h6 mb-0">Renee Mu</h4>
@@ -1435,19 +1390,19 @@
                         <ul class="list-inline mr-2">
                             <li class="list-inline-item mr-0">
                                 <img class="img-fluid avatar-md avatar-bordered rounded-circle"
-                                     src="assets/img/avatar-1.jpg" alt="">
+                                     src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
                             </li>
                             <li class="list-inline-item ml-offset-1 mr-0">
                                 <img class="img-fluid avatar-md avatar-bordered rounded-circle"
-                                     src="assets/img/avatar-2.jpg" alt="">
+                                     src="{% static 'assets/img/avatar-2.jpg' %}" alt="">
                             </li>
                             <li class="list-inline-item ml-offset-1 mr-0">
                                 <img class="img-fluid avatar-md avatar-bordered rounded-circle"
-                                     src="assets/img/avatar-3.jpg" alt="">
+                                     src="{% static 'assets/img/avatar-3.jpg' %}" alt="">
                             </li>
                             <li class="list-inline-item ml-offset-1 mr-0">
                                 <img class="img-fluid avatar-md avatar-bordered rounded-circle"
-                                     src="assets/img/avatar-4.jpg" alt="">
+                                     src="{% static 'assets/img/avatar-4.jpg' %}" alt="">
                             </li>
                         </ul>
                         <p class="mb-0">An average of <span class="text-dark font-weight-700">25,000</span> users signup
@@ -1462,152 +1417,6 @@
                             <span class="mn-top">Get started</span>
                         </a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="courses" class="spacer-double-lg">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="mb-5 pb-5 text-center">
-                        <h2 class="display-4">Recents courses</h2>
-                        <p class="w-md-60 mx-auto mb-0 lead">Our work with clients has always been at the intersection
-                            of deep industry expertise and extensive capabilities.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <article class="card shadow h-100">
-                        <div class="position-relative">
-                            <img class="card-img-top" src="assets/img/8.jpg" alt="">
-                            <span class="badge badge-success badge-lg ml-1 position-absolute  mr-5">Free</span>
-                        </div>
-                        <div class="card-body p-5">
-                            <a class="d-inline-block text-muted text-uppercase  small mb-2" href="#">Live events</a>
-                            <h2 class="h5 ">
-                                <a href="#">Master every area of your life</a>
-                            </h2>
-                            <p>Marketing refers to the activities of a company associated with buying and selling a
-                                product or service. </p>
-                        </div>
-                        <div class="card-footer border-0 pt-0 pb-5 px-0 mx-5">
-                            <div class="media align-items-center">
-                                <div class="media-body d-flex justify-content-left text-muted font-size-15 ml-2">
-                                    <span class="mr-3">33 students</span>
-                                    <span>8 Lessons</span>
-                                </div>
-                                <div class="avatar-group">
-                                    <img class="avatar-sm img-fluid rounded-circle img-fluid  avatar-bordered rounded-circle"
-                                         src="assets/img/avatar-2.jpg" alt="">
-                                    <img class="ml-offset-2 avatar-sm img-fluid rounded-circle img-fluid  avatar-bordered rounded-circle"
-                                         src="assets/img/avatar-1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <article class="card shadow h-100">
-                        <div class="position-relative">
-                            <img class="card-img-top" src="assets/img/9.jpg" alt="">
-                            <span class="badge badge-secondary badge-lg ml-1 position-absolute mr-5">50$</span>
-                        </div>
-                        <div class="card-body p-5">
-                            <a class="d-inline-block text-muted  text-uppercase small mb-2" href="#">Private
-                                coaching</a>
-                            <h3 class="h5 ">
-                                <a href="#">Start living the life of your dreams </a>
-                            </h3>
-                            <p>Marketing refers to the activities of a company associated with buying and selling a
-                                product or service. </p>
-                        </div>
-                        <div class="card-footer border-0 pt-0 pb-5 px-0 mx-5">
-                            <div class="media align-items-center">
-                                <div class="media-body d-flex justify-content-left text-muted font-size-15 ml-2">
-                                    <span class="mr-3">53 students</span>
-                                    <span>7 Lessons</span>
-                                </div>
-                                <div class="avatar-group">
-                                    <img class="avatar-sm img-fluid rounded-circle img-fluid  avatar-bordered rounded-circle"
-                                         src="assets/img/avatar-3.jpg" alt="">
-                                    <img class="ml-offset-2 avatar-sm img-fluid rounded-circle img-fluid  avatar-bordered rounded-circle"
-                                         src="assets/img/avatar-4.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <article class="card shadow h-100">
-                        <div class="position-relative">
-                            <img class="card-img-top" src="assets/img/10.jpg" alt="">
-                            <span class="badge badge-secondary badge-lg ml-1 position-absolute mr-5">50$</span>
-                        </div>
-                        <div class="card-body p-5">
-                            <a class="d-inline-block text-muted  text-uppercase small mb-2" href="#">Training
-                                programs</a>
-                            <h3 class="h5 ">
-                                <a href="#">Master your time to get more done and achieve more meaningful results </a>
-                            </h3>
-                            <p>Marketing refers to the activities of a company associated with buying and selling a
-                                product or service. </p>
-                        </div>
-                        <div class="card-footer border-0 pt-0 pb-5 px-0 mx-5">
-                            <div class="media align-items-center">
-                                <div class="media-body d-flex justify-content-left text-muted font-size-15 ml-2">
-                                    <span class="mr-3">23 students</span>
-                                    <span>3 Lessons</span>
-                                </div>
-                                <div class="avatar-group">
-                                    <img class="avatar-sm img-fluid rounded-circle img-fluid  avatar-bordered rounded-circle"
-                                         src="assets/img/avatar-1.jpg" alt="">
-                                    <img class="ml-offset-2 avatar-sm img-fluid rounded-circle img-fluid  avatar-bordered rounded-circle"
-                                         src="assets/img/avatar-2.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="mt-6 pt-6 text-center"><a class="mr-2 btn btn-secondary btn-radius-bottom-left  mb-lg-0"
-                                                          href="#">
-                        <span class="mn-top">View all courses</span>
-                    </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="bg-secondary spacer-double-lg">
-        <div class="bg-checkerboard d-none d-md-block"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="mb-5 pb-5 text-center">
-                        <h2 class="display-4">Subscribe to newsletter</h2>
-                        <p class="w-md-60 mx-auto mb-0 lead">Our work with clients has always been at the intersection
-                            of deep industry expertise and extensive capabilities.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-7">
-                    <form action="#">
-                        <div class="d-flex flex-column flex-sm-row form-group">
-                            <input class="form-control form-control-lg mr-sm-3 mb-2 mb-sm-0 h-100" name="email"
-                                   placeholder="Email Address" type="email">
-                            <button class="btn btn-wide btn-lg btn-secondary  btn-radius-bottom-left" type="submit">
-                                <span class="mn-top">Submit</span>
-                            </button>
-                        </div>
-                        <div class="small text-muted text-center pb-5">* We'll never share your email with third
-                            parties.
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
