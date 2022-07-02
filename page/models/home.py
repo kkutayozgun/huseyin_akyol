@@ -40,10 +40,11 @@ class About(TranslatableModel):
         verbose_name = _("Hakkımızda")
         verbose_name_plural = _("Hakkımızda")
 
-class AboutList(models.Model):
+class AboutList(TranslatableModel):
     about = models.ForeignKey(About, verbose_name=_("Hakkımızda"), on_delete=models.CASCADE)
-    item=models.CharField(_("Madde"), default="", blank=False, max_length=25)
-
+    translations = TranslatedFields(
+        info=models.CharField(_("Madde"), default="", blank=False, max_length=25),
+    )
     class Meta:
         verbose_name = _("Hakkımızda Maddeler")
         verbose_name_plural = _("Hakkımızda Maddeler")
@@ -91,10 +92,11 @@ class TreatmentPlan(TranslatableModel):
         verbose_name = _("Tedavi Planı")
         verbose_name_plural = _("Tedavi Planları")
 
-class TreatmentPlanItems(models.Model):
+class TreatmentPlanItems(TranslatableModel):
     treatment_plan = models.ForeignKey(TreatmentPlan, verbose_name=_("Tedavi Planı"), on_delete=models.CASCADE)
-    item=models.CharField(_("Madde"), blank=False, max_length=25)
-
+    translations = TranslatedFields(
+        info=models.CharField(_("Madde"), blank=False, max_length=25),
+    )
     class Meta:
         verbose_name = _("Tedavi Planı Maddeler")
         verbose_name_plural = _("Tedavi Planı Maddeler")

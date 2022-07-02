@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-from parler.admin import TranslatableAdmin
+from parler.admin import TranslatableAdmin, TranslatableTabularInline
 
 from page.models import (Keywords, seo_translations, HomePageSeo, About, AboutList, Image,
                          HomePageSeoSlides, AboutSlides, AboutBottomSlides,
@@ -26,7 +26,7 @@ class HomePageSeoAdmin(TranslatableAdmin):
     exclude = ('slides',)
 
 
-class AboutListInline(admin.TabularInline):
+class AboutListInline(TranslatableTabularInline):
     model = AboutList
 
 class AboutSlidesBottomInline(admin.TabularInline):
@@ -54,7 +54,7 @@ class ChangeJourneyAdmin(admin.ModelAdmin):
     pass
 
 
-class TreatmentPlanItemsInline(admin.TabularInline):
+class TreatmentPlanItemsInline(TranslatableTabularInline):
     model = TreatmentPlanItems
 
 @admin.register(TreatmentPlan)
