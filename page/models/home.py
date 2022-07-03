@@ -30,9 +30,9 @@ class About(TranslatableModel):
     slides = models.ManyToManyField(Image, related_name="about_slides", through="AboutSlides")
     slides_bottom = models.ManyToManyField(Image, related_name="about_slides_bottom", through="AboutBottomSlides")
     translations = TranslatedFields(
-        title=models.CharField(_("Başlık"), default="", blank=True, max_length=80),
+        title=models.CharField(_("Başlık"), default="", blank=True, max_length=100),
         intro=models.TextField(_("Giriş"), default="", blank=True),
-        description_title=models.CharField(_("Açıklama Girişi"), default="", blank=True, max_length=80),
+        description_title=models.CharField(_("Açıklama Girişi"), default="", blank=True, max_length=200),
         description=models.TextField(_("Açıklama"), default="", blank=True),
     )
 
@@ -43,7 +43,7 @@ class About(TranslatableModel):
 class AboutList(TranslatableModel):
     about = models.ForeignKey(About, verbose_name=_("Hakkımızda"), on_delete=models.CASCADE)
     translations = TranslatedFields(
-        info=models.CharField(_("Madde"), default="", blank=False, max_length=25),
+        info=models.CharField(_("Madde"), default="", blank=False, max_length=100),
     )
     class Meta:
         verbose_name = _("Hakkımızda Maddeler")
@@ -92,10 +92,10 @@ class TreatmentPlan(TranslatableModel):
         verbose_name = _("Tedavi Planı")
         verbose_name_plural = _("Tedavi Planları")
 
-class TreatmentPlanItems(TranslatableModel):
+class TreatmentPlanItem(TranslatableModel):
     treatment_plan = models.ForeignKey(TreatmentPlan, verbose_name=_("Tedavi Planı"), on_delete=models.CASCADE)
     translations = TranslatedFields(
-        info=models.CharField(_("Madde"), blank=False, max_length=25),
+        info=models.CharField(_("Madde"), blank=False, max_length=100),
     )
     class Meta:
         verbose_name = _("Tedavi Planı Maddeler")
@@ -104,8 +104,8 @@ class TreatmentPlanItems(TranslatableModel):
 
 class Faq(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(_("Soru"), blank=False, max_length=85),
-        description=models.TextField(_("Cevap"), blank=False),
+        question=models.CharField(_("Soru"), blank=False, max_length=150),
+        answer=models.TextField(_("Cevap"), blank=False),
     )
     class Meta:
         verbose_name = _("Sık Sorulan Soru")
