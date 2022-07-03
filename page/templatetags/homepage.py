@@ -10,7 +10,7 @@ def get_home_obj():
 
 @register.simple_tag
 def get_about_obj():
-    return About.objects.select_related(['slides', 'slides_bottom', 'aboutlist']).first()
+    return About.objects.prefetch_related('slides', 'slides_bottom', 'aboutlist_set').first()
 
 @register.simple_tag
 def get_surgery_obj():
@@ -22,7 +22,7 @@ def get_change_journey_obj():
 
 @register.simple_tag
 def get_treatment_plan_obj():
-    return TreatmentPlan.objects.select_related('treatmentplanitem').first()
+    return TreatmentPlan.objects.prefetch_related('treatmentplanitem_set').first()
 
 @register.simple_tag
 def get_faq_obj():
