@@ -1,12 +1,23 @@
+from math import ceil
 from django import template
 from page.models import (HomePageSeo, About, Surgery, ChangeJourney, TreatmentPlan, Faq, Image)
+from numpy import array_split
 
 register = template.Library()
 
+@register.filter(name='chunk')
+def chunk(collection, num):
+    return array_split(collection, num)
+
+@register.filter(name='pieces')
+def pieces(collection, num):
+    total = len(collection)
+    chunk_size = ceil(total/num)
+    return array_split(collection, chunk_size)
 
 @register.simple_tag
 def get_home_obj():
-    return HomePageSeo.objects.first()
+    return HomePageSeo.objects.prefetch_related('slides').first()
 
 @register.simple_tag
 def get_about_obj():
@@ -14,16 +25,16 @@ def get_about_obj():
 
 @register.simple_tag
 def get_surgery_obj():
-    return Surgery.objects.first()
+    return Surgery.objects.all()
 
 @register.simple_tag
 def get_change_journey_obj():
-    return ChangeJourney.objects.first()
+    return ChangeJourney.objects.all()
 
 @register.simple_tag
 def get_treatment_plan_obj():
-    return TreatmentPlan.objects.prefetch_related('treatmentplanitem_set').first()
+    return TreatmentPlan.objects.prefetch_related('treatmentplanitem_set').all()
 
 @register.simple_tag
 def get_faq_obj():
-    return Faq.objects.first()
+    return Faq.objects.all()

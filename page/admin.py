@@ -4,7 +4,7 @@ from parler.admin import TranslatableAdmin, TranslatableTabularInline
 
 from page.models import (Keywords, seo_translations, HomePageSeo, About, AboutList, Image,
                          HomePageSeoSlides, AboutSlides, AboutBottomSlides,
-                         Surgery, ChangeJourney, TreatmentPlan, TreatmentPlanItem, Faq
+                         Surgery, ChangeJourney, TreatmentPlan, TreatmentPlanItem, Faq, KVKKPageSeo
                          )
 
 admin.site.register(Keywords, TranslatableAdmin)
@@ -77,3 +77,12 @@ class TreatmentPlanItemsInline(TranslatableTabularInline):
 @admin.register(TreatmentPlan)
 class TreatmentPlanAdmin(TranslatableAdmin):
     inlines = [TreatmentPlanItemsInline]
+
+
+@admin.register(KVKKPageSeo)
+class KVKKPageSeoAdmin(TranslatableAdmin):
+    fieldsets = (
+        (_("İçerik Bilgisi"), {'fields': ('content',)}),
+        (_("SEO Bilgisi"), {'fields': seo_fields}),
+    )
+    filter_vertical = ('meta_keywords',)

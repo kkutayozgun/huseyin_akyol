@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load kvkk_page %}
+
+{% block meta %}
+    {% get_kvkk_obj as obj %}
+    {% include "components/base/meta.html" %}
+{% endblock %}
+
+{% block content %}
+    {% get_kvkk_obj as kvkk %}
+    <section class="col-12 hero">
+	    <div class="container min-h-500">
+	        {{ kvkk.content|safe }}
+	    </div>
+	</section>
+{% endblock %}

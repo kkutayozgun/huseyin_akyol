@@ -1,0 +1,30 @@
+.pr-10 {
+	padding-right: 6em;
+}
+.swiper.img-mobile {
+    width: 100vw;
+    height: auto;
+    margin-left: calc(50% - 50vw);
+}
+.edge-shape.edge-shape-bottom {
+	margin-bottom: -1px;
+}
+.svg-green{
+    fill: #17a8b9;
+}
+.min-h-500 {
+	min-height: 500px;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+	font-size: 1.025rem;
+}
+.header-navbar .navbar-brand.navbar-logo {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 3.45rem;
+  width: auto;
+  margin-top: -1.1rem;
+}
+.header-navbar .navbar-brand.navbar-logo .logo {
+	height: 100%;
+}

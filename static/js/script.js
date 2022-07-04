@@ -57,4 +57,36 @@
     });
 
 
+    // swiperjs - sliders
+    $(function () {
+    	var swiper = new Swiper(".homeswiper", {
+	        autoplay: {
+	          delay: 3000,
+	          disableOnInteraction: false,
+	        },
+	        loop: true,
+	        loopFillGroupWithBlank: true,
+	        loopPreventsSlide: false,
+	        effect: "fade",
+	        navigation: {
+	          nextEl: ".swiper-button-next",
+	          prevEl: ".swiper-button-prev",
+	        },
+	        pagination: {
+	          el: ".swiper-pagination",
+	          clickable: true,
+	        },
+	      });
+    	var groupslider = new Swiper(".groupslider", {
+        	slidesPerGroup: 1,
+	        loop: true,
+	        loopFillGroupWithBlank: true,
+	        loopPreventsSlide: false,
+	        navigation: {
+	          nextEl: ".swiper-button-next",
+	          prevEl: ".swiper-button-prev",
+	        }
+	      });
+    });
+
 })(jQuery);

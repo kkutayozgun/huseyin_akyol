@@ -1,27 +1,48 @@
 {% extends "base.html" %}
 {% load homepage %}
 {% load static %}
+{% load i18n %}
 
 {% block meta %}
     {% get_home_obj as obj %}
-    {% get_about_obj as about %}
-    {% get_surgery_obj as surgery %}
-    {% get_change_journey_obj as change_journey %}
-    {% get_treatment_plan_obj as treatment_plan %}
-    {% get_faq_obj as faq %}
     {% include "components/base/meta.html" %}
 {% endblock %}
 
 {% block content %}
-
+    {% get_home_obj as home %}
+	{% get_about_obj as about %}
+	{% get_surgery_obj as surgery %}
+	{% get_change_journey_obj as change_journey %}
+	{% get_treatment_plan_obj as treatment_plan %}
+	{% get_faq_obj as faq %}
 
     <section class="border-bottom">
         <div class="container">
             <div class="row align-items-stretch">
                 <div class="col-12 col-md-5 offset-md-1 order-md-2">
-                    <img class=" d-md-none img-mobile hero-img" src="{% static 'assets/img/1.jpg' %}" alt="">
+                	<div class="swiper d-md-none img-mobile homeswiper hero-img">
+                		<div class="swiper-wrapper">
+                			{% for slide in home.slides.all %}
+                			<div class="swiper-slide">
+                				<img class="d-md-none img-mobile" src="{{ slide.image.url }}" />
+                			</div>
+                			{% endfor %}
+                		</div>
+                		<div class="swiper-button-next"></div>
+                		<div class="swiper-button-prev"></div>
+                		<div class="swiper-pagination"></div>
+                	</div>
                     <div class="position-relative h-100 vw-50 d-none d-md-block">
-                        <img class=" bg-image" src="{% static 'assets/img/1.jpg' %}" alt="">
+                    	<div class="swiper homeswiper bg-image">
+                    		<div class="swiper-wrapper">
+                    			{% for slide in home.slides.all %}
+                    			<div class="swiper-slide">
+                    				<img class="bg-image" src="{{ slide.image.url }}" />
+                    			</div>
+                    			{% endfor %}
+                    		</div>
+                    		<div class="swiper-pagination"></div>
+                    	</div>
                         <div class="edge-shape edge-shape-left ">
                             <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -35,222 +56,34 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 hero order-md-1 ">
-                    <div class="design-pattern-container position-relative d-none d-lg-block">
-                        <div class="pattern-left " data-jarallax-element="0 50">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                 viewBox="0 0 7.3686 7.3686" enable-background="new 0 0 7.3686 7.3686"
-                                 xml:space="preserve">
-                              <circle opacity="0.1" fill="#00C9A7" cx="4.8686" cy="4.8686" r="2.5"/>
-                                <circle fill="none" stroke="#00C9A7" stroke-width="0.6363" stroke-miterlimit="10"
-                                        cx="2.3686" cy="2.3686" r="2.0504"/>
-                           </svg>
-                        </div>
-                        <div class="pattern-middle " data-jarallax-element="0 -60">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                 viewBox="0 0 7.3686 7.3686" enable-background="new 0 0 7.3686 7.3686"
-                                 xml:space="preserve">
-                              <circle opacity="1" fill="#163967" cx="4.8686" cy="4.8686" r="2.5"/>
-                           </svg>
-                        </div>
-                        <div class="pattern-bottom-right " data-jarallax-element="0 -60">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                 viewBox="0 0 69.9138 68.5447" enable-background="new 0 0 69.9138 68.5447"
-                                 xml:space="preserve">
-                              <path fill="#00C9A7" d="M15.8981,7.3764L0.5382,54.5527c-2.5447,7.8159,4.3258,15.4556,12.3669,13.7514l48.5358-10.2861
-                                 c8.0411-1.7041,11.222-11.474,5.7257-17.5858L33.9907,3.5421C28.4943-2.5696,18.4428-0.4394,15.8981,7.3764z"/>
-                           </svg>
-                        </div>
-                        <div class="pattern-bottom-left " data-jarallax-element="0 60">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                 viewBox="0 0 26.0689 28.025" enable-background="new 0 0 26.0689 28.025"
-                                 xml:space="preserve">
-                              <g>
-                                 <g>
-                                    <defs>
-                                       <path id="SVGID_1_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                     <clipPath id="SVGID_2_">
-                                       <use xlink:href="#SVGID_1_" overflow="visible"/>
-                                    </clipPath>
-                                     <line clip-path="url(#SVGID_2_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                           stroke-miterlimit="10" x1="-19.4639" y1="7.7276" x2="15.0361" y2="-16.5724"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_3_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_4_">
-                                       <use xlink:href="#SVGID_3_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_4_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-17.5639" y1="10.5276" x2="17.0361"
-                                            y2="-13.7724"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_5_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_6_">
-                                       <use xlink:href="#SVGID_5_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_6_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-15.5639" y1="13.3276" x2="19.0361"
-                                            y2="-10.9724"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_7_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_8_">
-                                       <use xlink:href="#SVGID_7_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_8_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-13.5639" y1="16.1276" x2="20.9361"
-                                            y2="-8.1724"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_9_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_10_">
-                                       <use xlink:href="#SVGID_9_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_10_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-11.6639" y1="18.9276" x2="22.9361"
-                                            y2="-5.3724"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_11_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_12_">
-                                       <use xlink:href="#SVGID_11_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_12_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-9.6639" y1="21.7276" x2="24.9361" y2="-2.5724"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_13_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_14_">
-                                       <use xlink:href="#SVGID_13_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_14_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-7.6639" y1="24.5276" x2="26.8361" y2="0.2276"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_15_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_16_">
-                                       <use xlink:href="#SVGID_15_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_16_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-5.7639" y1="27.3276" x2="28.8361" y2="3.0276"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_17_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_18_">
-                                       <use xlink:href="#SVGID_17_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_18_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-3.7639" y1="30.1276" x2="30.8361" y2="5.8276"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_19_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_20_">
-                                       <use xlink:href="#SVGID_19_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_20_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="-1.7639" y1="32.9276" x2="32.7361" y2="8.6276"/>
-                                 </g>
-                                  <g>
-                                    <defs>
-                                       <path id="SVGID_21_" d="M0.0129,3.3707l1.9482,21.8339c0.2113,2.368,2.905,3.6211,4.8523,2.2572L24.7508,14.899
-                                          c1.9491-1.3651,1.6896-4.3282-0.4671-5.3337L4.398,0.2943C2.2392-0.7122-0.1988,0.9983,0.0129,3.3707z"/>
-                                    </defs>
-                                      <clipPath id="SVGID_22_">
-                                       <use xlink:href="#SVGID_21_" overflow="visible"/>
-                                    </clipPath>
-                                      <line clip-path="url(#SVGID_22_)" fill="none" stroke="#E7EAF3" stroke-width="1.5"
-                                            stroke-miterlimit="10" x1="0.1361" y1="35.7276" x2="34.7361" y2="11.4276"/>
-                                 </g>
-                              </g>
-                           </svg>
-                        </div>
-                    </div>
-                    <div class="text-secondary text-uppercase font-weight-700  mb-0">Empower your business</div>
+                    <div class="text-secondary text-uppercase font-weight-700  mb-0">{{ home.title_intro }}</div>
                     <div class="pr-7">
                         <h1 class="display-3">
-                            We upgrade life and future
+                            {{ home.title }}
                         </h1>
-                        <p class="lead mb-5">
-                            Our work with clients has always been at the intersection of deep industry expertise and
-                            extensive capabilities.
+                        <p class="lead mb-3">
+                            {{ home.description}}
+                        </p>
+                        <p class="lead text-dark font-weight-bold mb-3">
+                            {% trans "Uzmanlarımız sizinle iletişime geçecektir." %}
                         </p>
                     </div>
-                    <div class="d-md-flex align-items-center">
-                        <a class="scroll btn btn-wide btn-radius-bottom-right btn-primary btn-lg mb-3 mb-md-0" href="#">
-                            <span class="mn-top">Get started</span>
-                        </a>
-                        <a class=" media align-items-center ml-md-4 ml-0 play-but popup-youtube"
-                           href="https://www.youtube.com/watch?v=PBb6a3Ub16c">
-                        <span class="play-icon mr-3">
-                        <span class="fa fa-play play-icon-inner"></span>
-                        </span>
-                            <span class="media-body text-dark font-weight-600">
-                        <small class="d-block text-uppercase font-weight-400 font-size-12">Watch</small>
-                        <span class="mn-top">Intro Video</span>
-                        </span>
+                    <div class="pr-10">
+                    	<form action=""></form>
+                    	<div class="clearfix"></div>
+                        <a class="scroll btn btn-wide col-12 btn-radius-bottom-right btn-primary btn-md mb-3 mb-md-0" href="#">
+                            <span class="mn-top">{% trans "Gönder" %}</span>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="bg-primary spacer-double-sm mt-n">
+    <section class="bg-primary-2 spacer-double-sm mt-n">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <ul class="list-unstyled d-flex flex-wrap justify-content-center mb-0">
-                        <li class="my-3 mx-3 mx-lg-4">
-                            <h3 class="h5 text-white">Trusted by</h3>
-                        </li>
-                        <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-1.svg' %}" alt="">
-                        </li>
-                        <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-2.svg' %}" alt="">
-                        </li>
-                        <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-3.svg' %}" alt="">
-                        </li>
-                        <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-4.svg' %}" alt="">
-                        </li>
-                        <li class="my-3 mx-3 mx-lg-4">
-                            <img class="icon-logo-svg" src="{% static 'assets/svg/logo-5.svg' %}" alt="">
-                        </li>
-                    </ul>
+                    <p class="text-white">{% trans "Obezite ve metabolik cerrahi çözümlerimiz ile tedavi yolculuğunuz boyunca yanınızdayız. Yüksek donanımlı hastane, tecrübeli ekimiz ve hiç eksik etmeyeceğimiz güler yüzümüzle size yardımcı olmak için hazırız!" %}</p>
                 </div>
             </div>
         </div>
@@ -259,23 +92,20 @@
         <div class="container">
             <div class="row align-items-center justify-content-around">
                 <div class="col-lg-5 col-md-9 order-2">
-                    <h3 class="h1">Upgrade your Business and change you life</h3>
-                    <p class="lead">Our work with clients has always been at the intersection of deep industry expertise
-                        and extensive capabilities.</p>
-                    <div class="max-width-2">
-                        <hr class="my-5">
-                    </div>
-                    <div class="media bg-secondary p-3 rounded">
-                        <img class="avatar-sm rounded-circle mr-3" src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
-                        <div class="media-body">
-                            <h4 class="h6 mb-0">Melissa Wagner</h4>
-                            <p class="text-muted mb-0">"Congratulations Team Foxconf we couldn't have done it without
-                                the efforts of everyone."</p>
-                        </div>
-                    </div>
+                    <h3 class="h1">{{ about.title }}</h3>
+                    <p class="lead">{{ about.intro }}</p>
                 </div>
                 <div class="col-lg-5 col-md-9 order-1 mb-5 mb-lg-0">
-                    <img src="{% static 'assets/img/3.jpg' %}" alt="" class="img-fluid rounded shadow-lg z-index-2 position-relative">
+                	<div class="swiper homeswiper img-fluid rounded shadow-lg z-index-2 position-relative">
+                		<div class="swiper-wrapper">
+                			{% for slide in about.slides.all %}
+                			<div class="swiper-slide">
+                				<img class="img-fluid rounded shadow-lg z-index-2 position-relative" src="{{ slide.image.url }}" />
+                			</div>
+                			{% endfor %}
+                		</div>
+                		<div class="swiper-pagination"></div>
+                	</div>
                     <div class="position-absolute  p-0 col-4 col-xl-4  top left mt-5 mn-lg-l mn-sm-l d-none d-md-block">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              x="0px" y="0px"
@@ -484,64 +314,39 @@
             </div>
             <div class="row align-items-center justify-content-around spacer-one-top-lg mb-6 pb-6">
                 <div class="col-lg-5 col-md-9 order-1">
-                    <h3 class="h1">In Foxecoach we do things differently</h3>
-                    <p class="lead">Our work with clients has always been at the intersection of deep industry expertise
-                        and extensive capabilities.</p>
+                    <h3 class="h1">{{ about.description_title }}</h3>
+                    <p class="lead">{{ about.description }}</p>
+                    {% with aboutlist_chunked=about.aboutlist_set.all|chunk:2 %}
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
-                                <div class="media-body h6">
-                                    Mobile Friendly
-                                </div>
+                    	{% for group in aboutlist_chunked %}
+                        	<div class="col-md-6">
+	                        	{% for list in group %}
+		                            <div class="media align-items-center  mb-1">
+		                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
+		                                <div class="media-body h6">
+		                                    {{ list.info }}
+		                                </div>
+		                            </div>
+	                        	{% endfor %}
                             </div>
-                            <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
-                                <div class="media-body h6">
-                                    Bootstrap 4
-                                </div>
-                            </div>
-                            <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
-                                <div class="media-body h6">
-                                    Modern design <span class="badge badge-secondary badge-pill ml-1"><span
-                                        class="mn-top">New</span></span>
-                                </div>
-                            </div>
-                            <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
-                                <div class="media-body h6">
-                                    Block section
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media align-items-center mb-1">
-                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
-                                <div class="media-body h6">
-                                    Easy to use
-                                </div>
-                            </div>
-                            <div class="media align-items-center mb-1">
-                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
-                                <div class="media-body h6">
-                                    Responsive
-                                </div>
-                            </div>
-                            <div class="media align-items-center  mb-1">
-                                <img class="mr-2 icon-check" src="{% static 'assets/svg/icon-checked.svg' %}" alt="">
-                                <div class="media-body h6">
-                                    24h support
-                                </div>
-                            </div>
-                        </div>
+                    	{% endfor %}
                     </div>
+                    {% endwith %}
                     <a class="scroll btn btn-primary btn-radius-bottom-left mt-5 mb-lg-0 mb-5" href="#">
-                        <span class="mn-top">Get In touch</span>
+                        <span class="mn-top">{% trans "Detaylı bilgi için bize ulaşın" %}</span>
                     </a>
                 </div>
                 <div class="col-lg-5 col-md-9 order-2">
-                    <img src="{% static 'assets/img/4.jpg' %}" alt="" class="img-fluid rounded shadow-lg z-index-2 position-relative">
+                	<div class="swiper homeswiper img-fluid rounded shadow-lg z-index-2 position-relative">
+                		<div class="swiper-wrapper">
+                			{% for slide in about.slides_bottom.all %}
+                			<div class="swiper-slide">
+                				<img class="img-fluid rounded shadow-lg z-index-2 position-relative" src="{{ slide.image.url }}" />
+                			</div>
+                			{% endfor %}
+                		</div>
+                		<div class="swiper-pagination"></div>
+                	</div>
                     <div class="position-absolute  p-0 col-4 col-xl-4  top right mt-5 mn-lg-r mn-sm-r d-none d-md-block">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              x="0px" y="0px"
@@ -748,28 +553,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <ul class="radius-bottom-right px-5 pt-2 pb-2 list-unstyled  rounded text-center d-flex  mb-0 bg-primary-2  flex-wrap justify-content-center">
-                        <li class="my-5 mx-5 mx-lg-5 ">
-                            <div class="h1 text-white mb-2 ">80%</div>
-                            <h6 class="mb-0 text-light">Cases Done</h6>
-                        </li>
-                        <li class="my-5 mx-5 mx-lg-5 ">
-                            <div class="h1 text-white mb-2 ">1.5k</div>
-                            <h6 class="mb-0 text-light">Happy Customers</h6>
-                        </li>
-                        <li class="my-5 mx-5 mx-lg-5 ">
-                            <div class="h1 text-white mb-2 ">45</div>
-                            <h6 class="mb-0 text-light">Awards Wining</h6>
-                        </li>
-                        <li class="my-5 mx-5 mx-lg-5 ">
-                            <div class="h1 text-white mb-2 ">12+</div>
-                            <h6 class="mb-0 text-light">Office Worldwide</h6>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
     <section id="changeyourlife" class="bg-secondary spacer-double-lg">
@@ -777,61 +560,62 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-5 pb-5 text-center">
-                        <h2 class="display-4">Change your life</h2>
-                        <p class="w-md-60 mx-auto mb-0 lead ">Our work with clients has always been at the intersection
-                            of deep industry expertise and extensive capabilities.</p>
+                        <h2 class="display-4">{% trans "Obezite ve Metabolik Cerrahi" %}</h2>
+                        <p class="w-md-60 mx-auto mb-0 lead ">{% trans "Yrd. Doç. Dr. Hüseyin Akyol, tüm obezite ve metabolik cerrahi süreçlerinde en yüksek standartlar ve teknolojilerle hizmet sunmaktadır. Size hangi konuda yardımcı olabiliriz?" %}</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-lg-0">
-                    <div class="position-relative px-3">
-                        <div class="position-relative z-index-2">
-                            <img class="max-width-5 mb-2" src="{% static 'assets/svg/startup-icon.svg' %}" alt="">
-                            <h4>Coaching</h4>
-                            <p class="mb-6 ">User research focuses on understanding user behaviors, needs, and
-                                motivations through observation techniques.</p>
-                            <img src="{% static 'assets/img/7.jpg' %}" alt="" class="img-fluid rounded radius-top-left z-index-2 ">
-                        </div>
-                        <span class="position-absolute number text-white d-none d-lg-block "
-                              data-jarallax-element="0 60">1</span>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4 mb-lg-0">
-                    <div class="position-relative px-3">
-                        <div class="position-relative z-index-2">
-                            <img class="max-width-5 mb-2" src="{% static 'assets/svg/idea-icon.svg' %}" alt="">
-                            <h4>Consulting</h4>
-                            <p class="mb-6 ">User research focuses on understanding user behaviors, needs, and
-                                motivations through observation techniques.</p>
-                            <img src="{% static 'assets/img/5.jpg' %}" alt="" class="img-fluid rounded radius-bottom-right z-index-2 ">
-                        </div>
-                        <span class="position-absolute number text-white d-none d-lg-block"
-                              data-jarallax-element="0 60">2</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="position-relative px-3">
-                        <div class="position-relative z-index-2">
-                            <img class="max-width-5 mb-2" src="{% static 'assets/svg/target-icon.svg' %}" alt="">
-                            <h4>Courses</h4>
-                            <p class="mb-6 ">User research focuses on understanding user behaviors, needs, and
-                                motivations through observation techniques.</p>
-                            <img src="{% static 'assets/img/6.jpg' %}" alt="" class="img-fluid rounded radius-top-right z-index-2 ">
-                        </div>
-                        <span class="position-absolute number text-white d-none d-lg-block"
-                              data-jarallax-element="0 60">3</span>
-                    </div>
-                </div>
-            </div>
+
+            {% with surgery_groups=surgery|pieces:3 %}
+        	<div class="swiper d-none d-md-block groupslider">
+        		<div class="swiper-wrapper ">
+            	{% for surgery_group in surgery_groups %}
+        			<div class="row m-0 swiper-slide">
+		            	{% for sblock in surgery_group %}
+		                <div class="col-md-4 mb-4 mb-lg-0">
+		                    <div class="position-relative px-3">
+		                        <div class="position-relative z-index-2">
+		                            <h4>{{ sblock.title }}</h4>
+		                            <p class="mb-6 ">{{ sblock.description }}</p>
+		                            <img src="{{ sblock.image.url }}" alt="" class="img-fluid rounded {% cycle 'radius-top-left' 'radius-bottom-right' 'radius-top-right' %} z-index-2 ">
+		                        </div>
+		                    </div>
+		                </div>
+		            	{% endfor %}
+	                </div>
+            	{% endfor %}
+	            </div>
+        		<div class="swiper-button-next"></div>
+        		<div class="swiper-button-prev"></div>
+        	</div>
+        	<div class="swiper d-md-none groupslider">
+        		<div class="swiper-wrapper">
+            	{% for surgery_group in surgery_groups %}
+	            	{% for sblock in surgery_group %}
+	                <div class="swiper-slide col-md-4 mb-4 mb-lg-0">
+	                    <div class="position-relative px-3">
+	                        <div class="position-relative z-index-2">
+	                            <h4>{{ sblock.title }}</h4>
+	                            <p class="mb-6 ">{{ sblock.description }}</p>
+	                            <img src="{{ sblock.image.url }}" alt="" class="img-fluid img-mobile m-0 z-index-2 ">
+	                        </div>
+	                    </div>
+	                </div>
+	            	{% endfor %}
+            	{% endfor %}
+	            </div>
+        		<div class="swiper-button-next"></div>
+        		<div class="swiper-button-prev"></div>
+        	</div>
+            {% endwith %}
             <div class="row">
                 <div class="col">
                     <div class="mt-6 pt-6 text-center"><a
                             class="mr-2 btn btn-primary btn-radius-bottom-left mb-2 mb-sm-0" href="#">
-                        <span class="mn-top">Get In touch</span>
+                        <span class="mn-top">{% trans "Bizi Arayın" %}</span>
                     </a>
                         <a class="scroll btn btn-secondary btn-radius-bottom-right mb-2 mb-sm-0" href="#">
-                            <span class="mn-top">Get a Quote</span>
+                            <span class="mn-top">{% trans "Bize Yazın" %}</span>
                         </a>
                     </div>
                 </div>
@@ -848,155 +632,50 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-5 pb-5 text-center">
-                        <h2 class="display-4 text-white">Choose your package</h2>
-                        <p class="w-md-60 mx-auto mb-0 lead text-white">Our work with clients has always been at the
-                            intersection of deep industry expertise and extensive capabilities.</p>
+                        <h2 class="display-4 text-white">{% trans "Tedavi Planları" %}</h2>
+                        <p class="w-md-60 mx-auto mb-0 lead text-white">{% trans "Obezite ve Metabolik Cerrahi ameliyat planı, tedavi süreci, transfer ve konaklama sürecini nasıl planlamak istersiniz?" %}</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center align-items-center">
-                <div class="col-sm-9 col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0  mb-5 mb-lg-0">
-                    <div class="card border-0">
-                        <header class="card-header border-0 position-relative bg-primary-2 text-white p-6 pb-7 ">
-                            <h3 class="mb-1 text-white">Individual Plan</h3>
-                            <span class="d-block">
-                           <span class="align-top h5 text-white">$</span>
-                           <span class="display-4 mn-top">22</span>
-                           <span>/month</span>
-                           </span>
-                        </header>
-                        <div class="position-relative">
-                            <div class="edge-shape edge-shape-bottom ">
-                                <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                     viewBox="0 0 331.2047 58" enable-background="new 0 0 331.2047 58"
-                                     xml:space="preserve">
-                                 <g>
-                                    <polygon points="331.2047,0 331.2047,58 0,58  "/>
-                                 </g>
-                              </svg>
-                            </div>
-                        </div>
-                        <div class="card-body px-6 pb-5">
-                            <ul class="list-group list-group-flush  mb-4">
-                                <li class="list-group-item">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6>Online Store</h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6>Staff accounts </h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6>24/7 support </h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item  py-2">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6 class="text-muted">Free SSL certificate </h6>
-                                    </div>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn  btn-block btn-soft-primary btn-radius-bottom-right"><span
-                                    class="mn-top">Get started</span></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-9 col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0">
-                    <div class="card border-0 ">
-                        <header class="card-header border-0 position-relative bg-primary-2 text-white p-6 pb-7">
-                            <h3 class="mb-1 text-white">Enterprise Plan</h3>
-                            <span class="d-block">
-                           <span class="align-top h6 text-white">$</span>
-                           <span class="display-4 mn-top">99</span>
-                           <span>/month</span>
-                           </span>
-                        </header>
-                        <div class="position-relative">
-                            <div class="edge-shape edge-shape-bottom ">
-                                <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                     viewBox="0 0 331.2047 58" enable-background="new 0 0 331.2047 58"
-                                     xml:space="preserve">
-                                 <g></g>
-                                    <g>
-                                    <polygon points="331.2047,0 331.2047,58 0,58  "/>
-                                 </g>
-                              </svg>
-                            </div>
-                        </div>
-                        <div class="card-body  px-6 pb-5">
-                            <ul class="list-group list-group-flush  mb-4">
-                                <li class="list-group-item">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6>Online Store</h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6> Unlimited products </h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6> 24/7 support </h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6>Sales channels</h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="d-flex align-items-center">
-                                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
-                                    <span class="fas fa-check icon-rounded-inner"></span>
-                                    </span>
-                                        <h6 class="text-muted"> Free SSL certificate </h6>
-                                    </div>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn  btn-block btn-soft-primary btn-radius-bottom-right"><span
-                                    class="mn-top">Get started</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-5 pt-5">
-                <div class="col-auto">
-                    <div class="alert bg-soft-white btn-radius-bottom-left mb-0 text-center font-weight-600">
-                        <p class="mb-0 text-white"><span class="mn-top">* Plan pricing may changes read our <a
-                                class="text-light" href="#">Terms</a> for more info.</span>
-                        </p>
-                    </div>
-                </div>
+            	{% for plan in treatment_plan %}
+            		<div class="col-sm-9 col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0  mb-5 mb-lg-0">
+            		    <div class="card border-0">
+            		        <header class="card-header border-0 position-relative bg-primary-2 text-white p-6 pb-7 ">
+            		            <h3 class="mb-1 text-white">{{ plan.name }}</h3>
+            		            <span class="d-block">
+            		           </span>
+            		        </header>
+            		        <div class="position-relative">
+            		            <div class="edge-shape edge-shape-bottom ">
+            		                <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
+            		                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            		                     viewBox="0 0 331.2047 58" enable-background="new 0 0 331.2047 58"
+            		                     xml:space="preserve">
+            		                 <g>
+            		                    <polygon points="331.2047,0 331.2047,58 0,58  "/>
+            		                 </g>
+            		              </svg>
+            		            </div>
+            		        </div>
+            		        <div class="card-body px-6 pb-5">
+            		            <ul class="list-group list-group-flush  mb-4">
+            		            	{% for item in plan.treatmentplanitem_set.all %}
+	            		                <li class="list-group-item">
+	            		                    <div class="d-flex align-items-center">
+	            		                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
+	            		                    <span class="fas fa-check icon-rounded-inner"></span>
+	            		                    </span>
+	            		                        <h6>{{ item.info }}</h6>
+	            		                    </div>
+	            		                </li>
+            		            	{% endfor %}
+            		            </ul>
+            		            <button type="button" class="btn  btn-block btn-soft-primary btn-radius-bottom-right"><a href="#contact" class="mn-top scroll">{% trans "Fiyat Al" %}</a></button>
+            		        </div>
+            		    </div>
+            		</div>
+            	{% endfor %}
             </div>
         </div>
     </section>
@@ -1005,128 +684,44 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-5 pb-5 text-center">
-                        <h2 class="display-4">How can we help ? </h2>
-                        <p class="w-md-60 mx-auto mb-0 lead">Our work with clients has always been at the intersection
-                            of deep industry expertise and extensive capabilities.</p>
+                        <h2 class="display-4">{% trans "Sıkça Sorulan Sorular" %}</h2>
+                        <p class="w-md-60 mx-auto mb-0 lead">{% trans "Obezite ve Metabolik Cerrahi yolculuğunuz hakkında tüm merak ettikleriniz burada!" %}</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div id="faq-accordion">
+                    	{% for qitem in faq %}
                         <div class="card card-collapse mb-3 ">
                             <div class="card-header accordion-header">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link btn-block d-flex justify-content-between accordion-collapse-btn collapsed"
-                                            data-toggle="collapse" data-target="#faq-accordion-1" aria-expanded="false"
-                                            aria-controls="faq-accordion-1">
-                                        What is forex trading ?
+                                            data-toggle="collapse" data-target="#faq-accordion-{{ forloop.counter }}" aria-expanded="false"
+                                            aria-controls="faq-accordion-{{ forloop.counter }}">
+                                        {{ qitem.question }}
                                         <span class="accordion-arrow">
                                  <span class="fa fa-angle-down accordion-arrow-inner"></span>
                                  </span>
                                     </button>
                                 </h5>
                             </div>
-                            <div id="faq-accordion-1" class="collapse" data-parent="#faq-accordion" style="">
-                                <div class="card-body accordion-body">Web marketing refers to a broad category of
-                                    advertising that takes many different forms, but generally involves any marketing
-                                    activity conducted online. Marketers have shifted their efforts online because it
-                                    tends to be significantly less expensive.
+                            <div id="faq-accordion-{{ forloop.counter }}" class="collapse" data-parent="#faq-accordion" style="">
+                                <div class="card-body accordion-body">
+                                    {{ qitem.answer }}
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-collapse mb-3">
-                            <div class="card-header accordion-header">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link btn-block d-flex justify-content-between accordion-collapse-btn collapsed"
-                                            data-toggle="collapse" data-target="#faq-accordion-2" aria-expanded="false"
-                                            aria-controls="faq-accordion-2">
-                                        It is worth trading forex ?
-                                        <span class="accordion-arrow">
-                                 <span class="fa fa-angle-down accordion-arrow-inner"></span>
-                                 </span>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="faq-accordion-2" class="collapse" data-parent="#faq-accordion" style="">
-                                <div class="card-body accordion-body">Web marketing refers to a broad category of
-                                    advertising that takes many different forms, but generally involves any marketing
-                                    activity conducted online. Marketers have shifted their efforts online because it
-                                    tends to be significantly less expensive.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-collapse mb-3 ">
-                            <div class="card-header accordion-header">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link btn-block d-flex justify-content-between accordion-collapse-btn collapsed"
-                                            data-toggle="collapse" data-target="#faq-accordion-3" aria-expanded="false"
-                                            aria-controls="faq-accordion-3">
-                                        Who is the richest forex trader ?
-                                        <span class="accordion-arrow">
-                                 <span class="fa fa-angle-down accordion-arrow-inner"></span>
-                                 </span>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="faq-accordion-3" class="collapse" data-parent="#faq-accordion" style="">
-                                <div class="card-body accordion-body">Web marketing refers to a broad category of
-                                    advertising that takes many different forms, but generally involves any marketing
-                                    activity conducted online. Marketers have shifted their efforts online because it
-                                    tends to be significantly less expensive.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-collapse mb-3">
-                            <div class="card-header accordion-header">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link btn-block d-flex justify-content-between accordion-collapse-btn collapsed"
-                                            data-toggle="collapse" data-target="#faq-accordion-4" aria-expanded="false"
-                                            aria-controls="faq-accordion-4">
-                                        Can you get rich by trading forex ?
-                                        <span class="accordion-arrow">
-                                 <span class="fa fa-angle-down accordion-arrow-inner"></span>
-                                 </span>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="faq-accordion-4" class="collapse" data-parent="#faq-accordion" style="">
-                                <div class="card-body accordion-body">Web marketing refers to a broad category of
-                                    advertising that takes many different forms, but generally involves any marketing
-                                    activity conducted online. Marketers have shifted their efforts online because it
-                                    tends to be significantly less expensive.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-collapse">
-                            <div class="card-header accordion-header ">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link btn-block d-flex justify-content-between accordion-collapse-btn collapsed"
-                                            data-toggle="collapse" data-target="#faq-accordion-5" aria-expanded="false"
-                                            aria-controls="faq-accordion-5">
-                                        How much money od i need to trade ?
-                                        <span class="accordion-arrow">
-                                 <span class="fa fa-angle-down accordion-arrow-inner"></span>
-                                 </span>
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="faq-accordion-5" class="collapse" data-parent="#faq-accordion" style="">
-                                <div class="card-body accordion-body">Web marketing refers to a broad category of
-                                    advertising that takes many different forms, but generally involves any marketing
-                                    activity conducted online. Marketers have shifted their efforts online because it
-                                    tends to be significantly less expensive.
-                                </div>
-                            </div>
-                        </div>
+                    	{% endfor %}
                     </div>
                 </div>
             </div>
             <div class="w-75 mx-auto mt-4 text-center">
-                <p class="mb-0 text-muted">Didn't find what you look after ? Visit the <a href="#"
-                                                                                          class="hover-arrow text-info">Help
-                    Center
-                    <span class="fa fa-arrow-right"></span></a>
+                <p class="mb-0 text-muted">{% trans "Merak ettiğiniz diğer sorular için bize ulaşın." %}
+                	<a href="#contact" class="hover-arrow text-info scroll">
+                		{% trans "İletişim" %}
+                    	<span class="fa fa-arrow-right"></span>
+                	</a>
                 </p>
             </div>
         </div>
@@ -1428,7 +1023,7 @@
     </section>
     <div class="curved-shape-container position-relative mt-4 d-none d-md-block">
         <div class="curved-shape">
-            <svg version="1.1" class="svg-blue" xmlns="http://www.w3.org/2000/svg"
+            <svg version="1.1" class="svg-green" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 2560 67" enable-background="new 0 0 2560 67;" xml:space="preserve">
                   <style type="text/css"></style>
@@ -1442,98 +1037,99 @@
                </svg>
         </div>
     </div>
-    <section id="contact" class="bg-primary spacer-double-lg">
+    <section id="contact" class="bg-primary-2 spacer-double-lg">
         <div class="container position-relative z-index-2">
             <div class="row justify-content-lg-between align-items-center">
                 <div class="col-lg-5  text-white mb-7 mb-lg-0">
                     <div class="mb-6">
-                        <h2 class="h1 text-white ">We're here to help, get in touch with us</h2>
-                        <p class="text-white">For more info about our products and pricing please feel free to get in
-                            touch true our <a class="text-info font-weight-medium" href="#">Help Center.</a></p>
+                        <h2 class="h1 text-white ">{% trans "Size yardımcı olmak için buradayız!" %}</h2>
+                        <p class="text-white">{% trans "Obezite ve Metabolik Cerrahi talepleriniz için formu doldurmanız yeterli. İletişim birimimiz en kısa süre içerisinde tarafınıza geri dönüş sağlayacaktır." %}</p>
                     </div>
                     <div class="row ">
                         <div class="col-sm-6 mb-5">
                            <span class="rounded-icon-size-1 bg-soft-white rounded-circle mb-3 d-block">
                            <span class="fas fa-envelope icon-rounded-inner"></span>
                            </span>
-                            <h4 class="h5 mb-0 text-white">General enquiries</h4>
-                            <a class="text-white-70 font-size-15" href="#">hello@foxecoaching.com</a>
+                            <h4 class="h5 mb-0 text-white">{% trans "E-posta" %}</h4>
+                            <a class="text-white-70 font-size-15" href="mailto:info@huseyinakyol.com.tr">info@huseyinakyol.com.tr</a>
                         </div>
                         <div class="col-sm-6 mb-5">
                            <span class="rounded-icon-size-1 bg-soft-white rounded-circle mb-3 d-block">
                            <span class="fas fa-phone icon-rounded-inner"></span>
                            </span>
-                            <h4 class="h5 mb-0 text-white">Phone Number</h4>
-                            <a class="text-white-70 font-size-15" href="#">(513) 352-3209 </a>
+                            <h4 class="h5 mb-0 text-white">{% trans "Telefon" %}</h4>
+                            <a class="text-white-70 font-size-15" href="call:+905324113381">+90 532 411 33 81</a>
                         </div>
                         <div class="col-sm-6">
                            <span class="rounded-icon-size-1 bg-soft-white rounded-circle mb-3 d-block">
                            <span class="fas fa-map-marker-alt icon-rounded-inner"></span>
                            </span>
-                            <h4 class="h5 mb-0 text-white">Address</h4>
-                            <a class="text-white-70 font-size-15" href="#">Central Park New York, USA </a>
+                            <h4 class="h5 mb-0 text-white">{% trans "Adresimiz" %}</h4>
+                            <a class="text-white-70 font-size-15" href="#">Cumhuriyet Mahallesi. Atatürk Cad. No:19 Daire: 23 İstanbul/Türkiye</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
                     <form class="card border-0 shadow-soft p-6">
                         <div class="mb-4">
-                            <h3 class="h5">Drop us a message</h3>
+                            <h3 class="h5">{% trans "Formu doldurun, size ulaşalım!" %}</h3>
                         </div>
                         <div class="row mx-gutters-2">
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="firstName" placeholder="First name"
+                                    <input type="text" class="form-control" name="firstName" placeholder="{% trans 'Adınız' %}"
                                            aria-label="First name">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="lasstName" placeholder="Last name">
+                                    <input type="text" class="form-control" name="lasstName" placeholder="{% trans 'Soyadınız' %}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
                                     <select class="custom-select">
-                                        <option selected="">Individual</option>
-                                        <option value="budget">Company</option>
+                                        <option selected="">{% trans "Tedavi Tercihiniz" %}</option>
+                                        {% for plan in treatment_plan %}
+                                        	<option value="{{ plan.name }}">{{ plan.name }}</option>
+                						{% endfor %}
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="email" placeholder="Your email">
+                                    <input type="text" class="form-control" name="email" placeholder="{% trans 'E-posta' %}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="phone" placeholder="Phone number">
+                                    <input type="text" class="form-control" name="phone" placeholder="{% trans 'Telefon' %}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" name="foundvia" placeholder="{% trans 'Bize Nerden Ulaştınız?' %}">
                                 </div>
                             </div>
                         </div>
                         <div class="mb-5">
-                            <label class="sr-only">How can we help you?</label>
+                            <label class="sr-only">{% trans "Formu doldurun, size ulaşalım!" %}</label>
                             <div class=" input-group">
                                 <textarea class="form-control" rows="4" name="description"
-                                          placeholder="Hi there, I would like to ..."
-                                          aria-label="Hi there, I would like to ..."></textarea>
+                                          placeholder="{% trans 'Mesajınız...' %}"
+                                          aria-label="{% trans 'Mesajınız...' %}"></textarea>
                             </div>
                         </div>
                         <div class=" mb-3">
                             <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
-                                <input type="checkbox" class="custom-control-input" id="newsletterCheckbox"
+                                <input type="checkbox" required class="custom-control-input" id="newsletterCheckbox"
                                        name="newsletterCheckbox">
                                 <label class="custom-control-label" for="newsletterCheckbox">
-                                    <small>Receive Newsletters from foxecoach.</small>
+                                    <small>{% trans 'Lütfen <a class="text-info font-weight-medium" target="_blank" href="/kvkk">KVKK Aydınlatma Metni</a> kapsamında kişisel verilerinizi Maxident ile paylaştığınızı onaylayınız.' %}</small>
                                 </label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-secondary btn-radius-bottom-right"><span class="mn-top">Send message</span>
+                        <button type="submit" class="btn btn-primary btn-radius-bottom-right"><span class="mn-top">{% trans "Gönder" %}</span>
                         </button>
                     </form>
                 </div>
