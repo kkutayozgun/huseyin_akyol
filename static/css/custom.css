@@ -28,3 +28,25 @@
 .header-navbar .navbar-brand.navbar-logo .logo {
 	height: 100%;
 }
+.whatsapp-fixed {
+	opacity: 0.9;
+	position: fixed;
+	width: 3rem;
+	height: 3rem;
+	background-color: #25D366!important;
+	border-color: #25D366;
+	text-align: center;
+	right: 2.875rem;
+	bottom: 7.1rem;
+	padding-top: .15rem;
+	z-index: 100;
+	color: #ffffff;
+	font-size: 1.65rem;
+	border-radius: 100%;
+}
+.whatsapp-fixed:hover {
+	opacity: 1;
+}
+.whatsapp-fixed .fa-whatsapp {
+	color: #fff!important;
+}

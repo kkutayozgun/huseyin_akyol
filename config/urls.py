@@ -22,4 +22,5 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += i18n_patterns(
     path('', views.HomePage.as_view(), name="home"),
     path(_('kvkk'), views.KVKKPage.as_view(), name="kvkk"),
+    path('handle_contact_form/', views.ContactFormEmailView.as_view(), name="handle_contact_form"),
 )

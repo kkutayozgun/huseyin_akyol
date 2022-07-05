@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>
+    <b>Adı:</b> {{ first_name }}
+</p>
+<p>
+    <b>Soyadı:</b> {{ last_name }}
+</p>
+<p>
+    <b>E-posta adesi:</b> {{ email }}
+</p>
+<p>
+    <b>Tedavi Seçimi:</b> {{ treatment }}
+</p>
+<p>
+    <b>Telefon Numarası:</b> {{ phone|default:phone }}
+</p>
+<p>
+    <b>Nereden Ulaştı?:</b> {{ via }}
+</p>
+<p>
+    <b>Mesaj:</b> {{ message|linebreaks }}
+</p>
+</body>
+</html>

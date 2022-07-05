@@ -1,0 +1,64 @@
+{% load i18n %}
+<form class="{{ form_cls }}" action="{% url 'handle_contact_form' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-4">
+        <h3 class="h5">{% trans intro %}</h3>
+    </div>
+    <div class="row mx-gutters-2">
+        <div class="col-md-6 mb-3">
+            <div class="input-group">
+                <input type="text" required class="form-control" name="first_name" placeholder="{% trans 'Adınız' %}"
+                       aria-label="First name">
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group">
+                <input type="text" required class="form-control" name="last_name" placeholder="{% trans 'Soyadınız' %}">
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group">
+                <select name="treatment" class="custom-select">
+                    <option selected="" value="">{% trans "Tedavi Tercihiniz" %}</option>
+                    {% for plan in treatment_plan %}
+                    	<option value="{{ plan.name }}">{{ plan.name }}</option>
+					{% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group">
+                <input type="text" required class="form-control" name="email" placeholder="{% trans 'E-posta' %}">
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group">
+                <input type="text" required class="form-control" name="phone" placeholder="{% trans 'Telefon' %}">
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group">
+                <input type="text" required class="form-control" name="via" placeholder="{% trans 'Bize Nerden Ulaştınız?' %}">
+            </div>
+        </div>
+    </div>
+    <div class="mb-5">
+        <label class="sr-only">{% trans "Formu doldurun, size ulaşalım!" %}</label>
+        <div class=" input-group">
+            <textarea required class="form-control" rows="4" name="message"
+                      placeholder="{% trans 'Mesajınız...' %}"
+                      aria-label="{% trans 'Mesajınız...' %}"></textarea>
+        </div>
+    </div>
+    <div class=" mb-3">
+        <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
+            <input type="checkbox" required class="custom-control-input" id="newsletterCheckbox"
+                   name="newsletterCheckbox">
+            <label class="custom-control-label" for="newsletterCheckbox">
+                <small>{% trans 'Lütfen <a class="text-info font-weight-medium" target="_blank" href="/kvkk">KVKK Aydınlatma Metni</a> kapsamında kişisel verilerinizi huseyinakyol.com ile paylaştığınızı onaylayınız.' %}</small>
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-radius-bottom-right {{ append_btn_class }}"><span class="mn-top">{% trans "Gönder" %}</span>
+    </button>
+</form>

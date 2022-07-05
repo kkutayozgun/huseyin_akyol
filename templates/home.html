@@ -69,11 +69,7 @@
                         </p>
                     </div>
                     <div class="pr-10">
-                    	<form action=""></form>
-                    	<div class="clearfix"></div>
-                        <a class="scroll btn btn-wide col-12 btn-radius-bottom-right btn-primary btn-md mb-3 mb-md-0" href="#">
-                            <span class="mn-top">{% trans "Gönder" %}</span>
-                        </a>
+                        {% include "components/partials/form.html" with intro="" append_btn_class="col-12" %}
                     </div>
                 </div>
             </div>
@@ -610,7 +606,7 @@
             {% endwith %}
             <div class="row">
                 <div class="col">
-                    <div class="mt-6 pt-6 text-center"><a
+                    <div class="mt-6 pt-6 text-center"><a href="call:+905324113381"
                             class="mr-2 btn btn-primary btn-radius-bottom-left mb-2 mb-sm-0" href="#">
                         <span class="mn-top">{% trans "Bizi Arayın" %}</span>
                     </a>
@@ -624,7 +620,9 @@
     </section>
     <section id="changejourney" class="bg-secondary spacer-double-lg">
         <div class="container">
-            <div class="row"></div>
+            <div class="row">
+            	change_journey
+            </div>
         </div>
     </section>
     <section id="packages" class="bg-primary mt-n spacer-double-lg">
@@ -962,31 +960,6 @@
             <div class="row justify-content-lg-center align-items-center pt-6 mt-6">
                 <div class="col-md-4 mb-6 mb-lg-0">
                     <div class="vertical-line-divider text-center px-md-3 px-lg-5">
-                        <figure class=" w-100 max-width-7 mx-auto mb-3" style="">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                 viewBox="0 0 111.8047 35.3251" enable-background="new 0 0 111.8047 35.3251"
-                                 xml:space="preserve">
-                              <g>
-                                 <polygon fill="#FFC107" points="58.25,0 63.9889,11.6283 76.8215,13.493 67.5357,22.5443 69.7278,35.3251 58.25,29.2908
-                                    46.7722,35.3251 48.9643,22.5443 39.6785,13.493 52.5111,11.6283  "/>
-                                  <polygon opacity="0.5" fill="#FFC107" points="28.25,10.865 31.8979,18.2564 40.0547,19.4416 34.1523,25.195 35.5457,33.3189
-                                    28.25,29.4833 20.9543,33.3189 22.3477,25.195 16.4453,19.4416 24.6021,18.2564  "/>
-                                  <polygon opacity="0.5" fill="#FFC107" points="86,10.865 89.6479,18.2564 97.8047,19.4416 91.9024,25.195 93.2957,33.3189
-                                    86,29.4833 78.7043,33.3189 80.0976,25.195 74.1953,19.4416 82.3521,18.2564   "/>
-                                  <polygon opacity="0.25" fill="#FFC107" points="7,19.8606 9.1631,24.2435 14,24.9464 10.5,28.358 11.3262,33.1754 7,30.9009
-                                    2.6738,33.1754 3.5,28.358 0,24.9464 4.8369,24.2435  "/>
-                                  <polygon opacity="0.25" fill="#FFC107" points="104.8047,19.8606 106.9678,24.2435 111.8047,24.9464 108.3047,28.358
-                                    109.1309,33.1754 104.8047,30.9009 100.4785,33.1754 101.3047,28.358 97.8047,24.9464 102.6416,24.2435   "/>
-                              </g>
-                           </svg>
-                        </figure>
-                        <p class="mb-0"><span class="text-dark font-weight-700">4.9 out of 5 stars</span> from 1.5k
-                            customers.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-6 mb-lg-0">
-                    <div class="vertical-line-divider text-center px-md-3 px-lg-5">
                         <ul class="list-inline mr-2">
                             <li class="list-inline-item mr-0">
                                 <img class="img-fluid avatar-md avatar-bordered rounded-circle"
@@ -1005,17 +978,6 @@
                                      src="{% static 'assets/img/avatar-4.jpg' %}" alt="">
                             </li>
                         </ul>
-                        <p class="mb-0">An average of <span class="text-dark font-weight-700">25,000</span> users signup
-                            every month.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <!-- Stats -->
-                    <div class="text-center px-md-3 px-lg-5">
-                        <a class="scroll btn btn-wide btn-radius-bottom-left btn-secondary btn-lg mb-5 mb-lg-0"
-                           href="#">
-                            <span class="mn-top">Get started</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1070,68 +1032,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
-                    <form class="card border-0 shadow-soft p-6">
-                        <div class="mb-4">
-                            <h3 class="h5">{% trans "Formu doldurun, size ulaşalım!" %}</h3>
-                        </div>
-                        <div class="row mx-gutters-2">
-                            <div class="col-md-6 mb-3">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="firstName" placeholder="{% trans 'Adınız' %}"
-                                           aria-label="First name">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="lasstName" placeholder="{% trans 'Soyadınız' %}">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="input-group">
-                                    <select class="custom-select">
-                                        <option selected="">{% trans "Tedavi Tercihiniz" %}</option>
-                                        {% for plan in treatment_plan %}
-                                        	<option value="{{ plan.name }}">{{ plan.name }}</option>
-                						{% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="email" placeholder="{% trans 'E-posta' %}">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="phone" placeholder="{% trans 'Telefon' %}">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="foundvia" placeholder="{% trans 'Bize Nerden Ulaştınız?' %}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-5">
-                            <label class="sr-only">{% trans "Formu doldurun, size ulaşalım!" %}</label>
-                            <div class=" input-group">
-                                <textarea class="form-control" rows="4" name="description"
-                                          placeholder="{% trans 'Mesajınız...' %}"
-                                          aria-label="{% trans 'Mesajınız...' %}"></textarea>
-                            </div>
-                        </div>
-                        <div class=" mb-3">
-                            <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
-                                <input type="checkbox" required class="custom-control-input" id="newsletterCheckbox"
-                                       name="newsletterCheckbox">
-                                <label class="custom-control-label" for="newsletterCheckbox">
-                                    <small>{% trans 'Lütfen <a class="text-info font-weight-medium" target="_blank" href="/kvkk">KVKK Aydınlatma Metni</a> kapsamında kişisel verilerinizi Maxident ile paylaştığınızı onaylayınız.' %}</small>
-                                </label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-radius-bottom-right"><span class="mn-top">{% trans "Gönder" %}</span>
-                        </button>
-                    </form>
+                	{% include "components/partials/form.html" with intro="Formu doldurun, size ulaşalım!" form_cls="card border-0 shadow-soft p-6" %}
                 </div>
             </div>
         </div>
