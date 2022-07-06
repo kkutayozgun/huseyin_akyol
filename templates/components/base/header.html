@@ -1,11 +1,13 @@
 {% load static %}
 {% load i18n %}
 
+{% url 'home' as home_url %}
+
 <header class="header default border-bottom">
     <div class="header-section">
         <div class="container ">
             <nav class="navbar navbar-expand-lg header-navbar ">
-                <a class=" navbar-brand navbar-logo scroll" href="#wrapper">
+                <a class=" navbar-brand navbar-logo scroll" href="{{ home_url }}#wrapper">
                 	{% with "assets/svg/dr.huseyin-akyol-"|add:LANGUAGE_CODE|add:"-logo.svg" as logo %}
                 	<img class="mb-0 logo" src="{% static logo %}" alt="">
                 	{% endwith %}
@@ -16,19 +18,22 @@
                 </button>
                 <div class="nav-menu collapse navbar-collapse navbar-collapse justify-content-end py-0 ">
                     <ul class=" navbar-nav  header-navbar-nav">
-                        <li><a class="nav-link scroll" href="#home">{% trans "Ana sayfa" %}</a>
+                        <li><a class="nav-link scroll" href="{{ home_url }}#home">{% trans "Ana sayfa" %}</a>
                         </li>
-                        <li><a class="nav-link scroll" href="#about">{% trans "Hakkımda"%}</a>
+                        <li><a class="nav-link scroll" href="{{ home_url }}#about">{% trans "Hakkımda"%}</a>
                         </li>
-                        <li><a class="nav-link scroll" href="#changeyourlife">{% trans "Obezite ve Metabolik Cerrahi"%}</a>
+                        <li><a class="nav-link scroll" href="{{ home_url }}#changeyourlife">
+                            {% trans "Obezite ve Metabolik Cerrahi"%}</a>
                         </li>
-                        <li><a class="nav-link scroll" href="#changejourney">{% trans "Değişim Yolculuğu"%}</a>
+                        <li><a class="nav-link scroll" href="{{ home_url }}#changejourney">
+                            {% trans "Değişim Yolculuğu"%}</a>
                         </li>
-                        <li><a class="nav-link scroll" href="#packages">{% trans "Tedavi Planı"%}</a>
+                        <li><a class="nav-link scroll" href="{{ home_url }}#packages">{% trans "Tedavi Planı"%}</a>
                         </li>
-                        <li><a class="nav-link scroll" href="#faq">{% trans "SSS"%}</a>
+                        <li><a class="nav-link scroll" href="{{ home_url }}#faq">{% trans "SSS"%}</a>
                         </li>
-                        <li class="mb-3 mb-lg-0"><a class="nav-link scroll" href="#contact">{% trans "İletişim"%}</a>
+                        <li class="mb-3 mb-lg-0"><a class="nav-link scroll" href="{{ home_url }}#contact">
+                            {% trans "İletişim"%}</a>
                         </li>
                     </ul>
                 </div>
