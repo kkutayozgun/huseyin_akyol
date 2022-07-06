@@ -1,12 +1,22 @@
 #!/usr/bin/env python
+import sys
+import os
+import django
+
+import os
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.dev')
+django.setup()
+
 from page.views import KVKKPage
 
 
 class FreshTestData:
     @staticmethod
     def run():
-        from page.models import (HomePageSeo, About, AboutList, Surgery, ChangeJourney, TreatmentPlan, TreatmentPlanItem, Image, Faq, KVKKPageSeo)
+        from page.models import (HomePageSeo, About, AboutList, Surgery, ChangeJourney, TreatmentPlan, TreatmentPlanItem, Image, Faq, KVKKPageSeo, CustomerReview)
 
+        print("Deleting old content data...")
         HomePageSeo.objects.all().delete()
         About.objects.all().delete()
         Surgery.objects.all().delete()
@@ -16,13 +26,15 @@ class FreshTestData:
         TreatmentPlanItem.objects.all().delete()
         Image.objects.all().delete()
         KVKKPageSeo.objects.all().delete()
+        CustomerReview.objects.all().delete()
 
         test_img_dir = "images"
 
+        print("Inserting new test content...")
         home = HomePageSeo.objects.create(
             title_intro="Peruvian further ampelitic",
             title="Banksian overcomplacency mistime",
-            description="cutty communitary millwrighting evert imparipinnate metratonia tricarinate verjuice antitypically noncriminal aberdevine fleyland supracranial",
+            description="Cutty communitary millwrighting evert imparipinnate metratonia tricarinate verjuice antitypically noncriminal aberdevine fleyland supracranial",
             bottom_content="Rouvillite phocid roughdress unkenneled Jennie Konstantinos acapnia debatement consentiently winterproof panelation restitution unmordanted Kylo porodite planispheric antifame",
         )
         home.slides.create(image=f"{test_img_dir}/1.jpg")
@@ -103,5 +115,22 @@ class FreshTestData:
             )
 
         kvkkpage = KVKKPageSeo.objects.create(content='<h1><span style="font-family:Comic Sans MS,cursive"><span style="font-size:18px">Lorem ipsum dolor sit amet,</span></span></h1>\r\n\r\n<p>consectetur adipiscing elit. Nam tincidunt arcu vel so<s>dales dictum. Nulla ut sodales magna. Prae</s>sent tellus erat, vestibulu<strong>m at hendrerit non, cursus id urna. Null</strong>am rhoncus sagittis porta. Suspendisse ut luctus sapien. Aliquam erat volutpat. Cras tincidunt lacus quis lobortis volutpat. Nulla facilisi. Donec orci libero, lacinia vehicula gravida eu, suscipit non mauris. Nulla facilisi. Curabitur facilisis ac ante vel placerat. Cras sodales, dolor nec ornare dignissim, felis magna commodo sem, non fringilla lacus metus eget urna. Suspendisse potenti.</p>\r\n\r\n<p>Mor<em>bi dapibus a urna et vestibulum. Fusce dapibus vestibu</em><u>lum libero, nec fringilla ipsum sceleri</u>sque tristique. Nunc at risus varius, dapibus nulla ac, aliquam mauris. Ut auctor dignissim ipsum sed pellentesque. In maximus faucibus ipsum. Nullam eget nisl eu nisl varius consectetur at non augue. Suspendisse <u>ut turpis vitae enim posuere facilisis. Donec molestie urna eget risus vulputate lobortis. Duis dapibus sed nulla bibendum tristique. Proin finibus congue purus. Interdum et mal</u>esuada fames ac ante ipsum primis in faucibus. Quisque quis dolor in nisi pharetra scelerisque. Nunc hendrerit, ipsum vitae tempor malesuada, nisl magna luctus elit, ac elementum tellus mauris sit amet mauris. Mauris elementum porttitor ante, vitae dignissim enim cursus quis.</p>\r\n\r\n<p>Maecenas mattis massa eget justo pulvinar blandit. Etiam molestie dolor ligula. Nulla ac enim elit. Donec at dignissim lacus. Quisque a mauris elit. Nulla vel laoreet lacus. Duis mattis tincidunt tortor ac viverra. Nam pretium neque diam, sed ultricies justo suscipit eu.</p>\r\n\r\n<p style="text-align:center">Etiam molestie dolor ligula. Nulla ac enim elit</p>\r\n\r\n<p>Phasellus pretium dictum magna, vitae consequat justo sollicitudin at. Quisque tellus ligula, eleifend ac facilisis vel, convallis sit amet dui. Quisque bibendum mi placerat, suscipit risus sit amet, vestibulum nunc. Donec sit amet suscipit libero. Phasellus lorem enim, ultrices vel dolor quis, eleifend convallis purus. Morbi eu magna aliquet magna pellentesque imperdiet. Mauris a dignissim diam. Aenean consequat ac leo in mattis. Quisque eleifend, tortor vitae tristique porttitor, mi leo tristique tortor, vel fringilla justo lorem sed odio. Donec iaculis erat convallis tincidunt tempus. Duis feugiat, orci ac facilisis pharetra, dui velit bibendum mauris, eget commodo tellus lacus et ex. Praesent rhoncus nec libero elementum molestie. Nam porttitor ipsum diam. Donec ornare augue quis quam vehicula, et pharetra nisl eleifend. Aenean bibendum justo id velit laoreet, vitae hendrerit libero sollicitudin.</p>\r\n\r\n<blockquote>\r\n<p>Vivamus scelerisque mi et vestibulum rutrum. Nulla at elit arcu. Morbi leo lectus, gravida id purus vel, vestibulum venenatis turpis. Curabitur lobortis diam sit amet ante malesuada, ut faucibus dui molestie. Suspendisse quis consectetur metus. Duis consequat metus libero, nec luctus ante faucibus at. Maecenas eleifend tortor libero, sit amet aliquet arcu lacinia id. Nulla convallis leo quis augue posuere, quis maximus enim volutpat. Aenean in sapien a nibh maximus placerat vitae sed dolor.</p>\r\n</blockquote>')
+
+        CustomerReview.objects.create(
+           full_name="Adriene Bachrach",
+           job_title="Perennial unliveable",
+           comment="Dijudicate paleornithology mannishly decadentism bantling floorless outgrowth developmentalist constructible impossible unreproached neuropterist ridiculous ureteroproctostomy unchristened roadability duopod misalienate unsubstantially mannie",
+        )
+        CustomerReview.objects.create(
+           full_name="Christy Goyco",
+           job_title="Gorgon nitrosulphate",
+           comment="Galvanomagnet bachelorhood topcoating postscriptum bick egomaniac ruminative hiodont isograft renownful uncramp Pazend hemimellitene Pasteurelleae receptorial foreleech tragal bromoacetone warbling propitiatorily ogam ghost abaff involutorial",
+        )
+        CustomerReview.objects.create(
+           full_name="Kali Collingsworth",
+           job_title="Preseparate undrowned",
+           comment="Stof interentanglement congratulant insuppressive bisexed astony apteral inimically photometrograph fanlike genista preharshness suffocative Alphonso nonorganization detectability refluxed metromaniacal",
+        )
+        print("Inserting test data completed!")
 
 FreshTestData.run()

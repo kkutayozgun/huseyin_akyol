@@ -4,7 +4,8 @@ from parler.admin import TranslatableAdmin, TranslatableTabularInline
 
 from page.models import (Keywords, seo_translations, HomePageSeo, About, AboutList, Image,
                          HomePageSeoSlides, AboutSlides, AboutBottomSlides,
-                         Surgery, ChangeJourney, TreatmentPlan, TreatmentPlanItem, Faq, KVKKPageSeo
+                         Surgery, ChangeJourney, TreatmentPlan, TreatmentPlanItem, Faq, KVKKPageSeo,
+                         CustomerReview
                          )
 
 admin.site.register(Keywords, TranslatableAdmin)
@@ -60,11 +61,11 @@ class AboutAdmin(TranslatableAdmin, OneEntityModel):
 
 @admin.register(Surgery)
 class SurgeryAdmin(TranslatableAdmin):
-    pass
+    list_display = ['title']
 
 @admin.register(Faq)
 class FaqAdmin(TranslatableAdmin):
-    pass
+    list_display = ['question']
 
 @admin.register(ChangeJourney)
 class ChangeJourneyAdmin(admin.ModelAdmin):
@@ -77,6 +78,7 @@ class TreatmentPlanItemsInline(TranslatableTabularInline):
 @admin.register(TreatmentPlan)
 class TreatmentPlanAdmin(TranslatableAdmin):
     inlines = [TreatmentPlanItemsInline]
+    list_display = ['name']
 
 
 @admin.register(KVKKPageSeo)
@@ -86,3 +88,8 @@ class KVKKPageSeoAdmin(TranslatableAdmin):
         (_("SEO Bilgisi"), {'fields': seo_fields}),
     )
     filter_vertical = ('meta_keywords',)
+
+
+@admin.register(CustomerReview)
+class CustomerReviewAdmin(TranslatableAdmin):
+    list_display = ['full_name', 'job_title']

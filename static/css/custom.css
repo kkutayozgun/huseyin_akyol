@@ -28,6 +28,9 @@
 .header-navbar .navbar-brand.navbar-logo .logo {
 	height: 100%;
 }
+.w-full: {
+	width:  100%;
+}
 .whatsapp-fixed {
 	opacity: 0.9;
 	position: fixed;
@@ -49,4 +52,19 @@
 }
 .whatsapp-fixed .fa-whatsapp {
 	color: #fff!important;
+}
+.journeyslider .swiper-slide img {
+	object-fit: cover;
+	height: 15rem;
+}
+
+@media (min-width: 768px) {
+	.h-hmd {
+		display: none;
+	}
+}
+@media (max-width: 767px) {
+	.h-lmd {
+		display: none;
+	}
 }

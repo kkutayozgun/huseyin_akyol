@@ -14,6 +14,7 @@
 	{% get_surgery_obj as surgery %}
 	{% get_change_journey_obj as change_journey %}
 	{% get_treatment_plan_obj as treatment_plan %}
+	{% get_customer_review_obj as customer_reviews %}
 	{% get_faq_obj as faq %}
 
     <section class="border-bottom">
@@ -618,10 +619,43 @@
             </div>
         </div>
     </section>
-    <section id="changejourney" class="bg-secondary spacer-double-lg">
+    <section id="changejourney" class="spacer-double-lg">
         <div class="container">
             <div class="row">
-            	change_journey
+                <div class="col">
+                    <div class="mb-5 pb-5 text-center">
+                        <h2 class="display-4">{% trans "Değişim Yolculuğu" %}</h2>
+                        <p class="w-md-60 mx-auto mb-0 lead ">{% trans "Daha sağlıklı ve konforlu bir yaşam için adım atan hastalarımızı keşfedin!" %}</p>
+                    </div>
+                </div>
+                <div class="h-lmd col-12">
+	            	<div class="swiper journeyslider journeyslider-large">
+	            		<div class="swiper-wrapper">
+			            	{% for journey in change_journey %}
+	            				<div class="swiper-slide">
+	            					<img class="img-fluid" src="{{ journey.image.url }}">
+	            				</div>
+			            	{% endfor %}
+	            		</div>
+	            		<div class="swiper-button-next"></div>
+	            		<div class="swiper-button-prev"></div>
+	            		<div class="swiper-pagination"></div>
+	            	</div>
+                </div>
+                <div class="h-hmd col-12">
+	            	<div class="swiper journeyslider journeyslider-mobile">
+	            		<div class="swiper-wrapper">
+			            	{% for journey in change_journey %}
+	            				<div class="swiper-slide">
+	            					<img class="img-fluid" src="{{ journey.image.url }}">
+	            				</div>
+			            	{% endfor %}
+	            		</div>
+	            		<div class="swiper-button-next"></div>
+	            		<div class="swiper-button-prev"></div>
+	            		<div class="swiper-pagination"></div>
+	        		</div>
+            	</div>
             </div>
         </div>
     </section>
@@ -729,257 +763,49 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-5 pb-5 text-center">
-                        <h2 class="display-4">Customers love Foxecoach</h2>
-                        <p class="w-md-60 mx-auto mb-0 lead">Our work with clients has always been at the intersection
-                            of deep industry expertise and extensive capabilities.</p>
+                        <h2 class="display-4">{% trans "Customers love Foxecoach" %}</h2>
+                        <p class="w-md-60 mx-auto mb-0 lead">{% trans "Our work with clients has always been at the intersection of deep industry expertise and extensive capabilities." %}</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 mb-5">
-                    <div class="card border-0 radius-bottom-right shadow-soft h-100">
-                        <div class="card-body p-5">
-                            <ul class="list-inline text-warning">
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                            </ul>
-                            <p class=" mb-0">UX strategy is the plan and approach for a digital product. UX strategies
-                                help businesses translate their intended user experience.</p>
-                        </div>
-                        <div class="card-footer border-0  pt-0 px-5 pb-5">
-                            <div class="media">
-                                <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="h6 mb-0">Renee Mu</h4>
-                                    <small class="d-block text-muted ">Business Manager</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="card border-0 radius-bottom-right h-100 shadow-soft">
-                        <div class="card-body p-5">
-                            <ul class="list-inline text-warning">
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                            </ul>
-                            <p class=" mb-0">User research focuses on understanding user behaviors, needs, and
-                                motivations through observation techniques.</p>
-                        </div>
-                        <div class="card-footer border-0  pt-0 px-5 pb-5">
-                            <div class="media">
-                                <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-2.jpg' %}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="h6 mb-0">David Taylor</h4>
-                                    <small class="d-block text-muted">CEO at Slack</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-5  ">
-                    <div class="card border-0 radius-bottom-right h-100 shadow-soft">
-                        <div class="card-body p-5">
-                            <ul class="list-inline text-warning">
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                            </ul>
-                            <p class=" mb-0">Content strategy focuses on the planning, creation, delivery, and
-                                governance of content.</p>
-                        </div>
-                        <div class="card-footer border-0  pt-0 px-5 pb-5">
-                            <div class="media">
-                                <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-3.jpg' %}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="h6 mb-0">Jeremy Spivak</h4>
-                                    <small class="d-block text-muted">Front Pay user</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="card border-0 radius-bottom-right h-100 shadow-soft">
-                        <div class="card-body p-5">
-                            <ul class="list-inline text-warning">
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                            </ul>
-                            <p class=" mb-0">User experience metrics focus on ease of use. Usability is familiar
-                                territory and something that UX teams do well so this makes sense as a starting
-                                point.</p>
-                        </div>
-                        <div class="card-footer border-0  pt-0 px-5 pb-5">
-                            <div class="media">
-                                <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-4.jpg' %}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="h6 mb-0">David Taylor</h4>
-                                    <small class="d-block text-muted">Business Manager</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="card border-0 radius-bottom-right h-100 shadow-soft">
-                        <div class="card-body p-5">
-                            <ul class="list-inline text-warning">
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                            </ul>
-                            <p class=" mb-0">Visual design is the use of imagery, color, shapes, typography, and form to
-                                enhance usability and improve the user experience.</p>
-                        </div>
-                        <div class="card-footer border-0  pt-0 px-5 pb-5">
-                            <div class="media">
-                                <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-5.jpg' %}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="h6 mb-0">Jeremy Spivak</h4>
-                                    <small class="d-block text-muted">CEO at Slack</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-6 mb-lg-0">
-                    <div class="card border-0 radius-bottom-right h-100 shadow-soft">
-                        <div class="card-body p-5">
-                            <ul class="list-inline text-warning">
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                            </ul>
-                            <p class=" mb-0">User experience metrics focus on ease of use. Usability is familiar
-                                territory and something that UX teams do well so this makes sense as a starting
-                                point.</p>
-                        </div>
-                        <div class="card-footer border-0 pt-0 px-5 pb-5">
-                            <div class="media">
-                                <div class="avatar-sm mr-3">
-                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="h6 mb-0">Renee Mu</h4>
-                                    <small class="d-block text-muted">Front Pay user</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-lg-center align-items-center pt-6 mt-6">
-                <div class="col-md-4 mb-6 mb-lg-0">
-                    <div class="vertical-line-divider text-center px-md-3 px-lg-5">
-                        <ul class="list-inline mr-2">
-                            <li class="list-inline-item mr-0">
-                                <img class="img-fluid avatar-md avatar-bordered rounded-circle"
-                                     src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
-                            </li>
-                            <li class="list-inline-item ml-offset-1 mr-0">
-                                <img class="img-fluid avatar-md avatar-bordered rounded-circle"
-                                     src="{% static 'assets/img/avatar-2.jpg' %}" alt="">
-                            </li>
-                            <li class="list-inline-item ml-offset-1 mr-0">
-                                <img class="img-fluid avatar-md avatar-bordered rounded-circle"
-                                     src="{% static 'assets/img/avatar-3.jpg' %}" alt="">
-                            </li>
-                            <li class="list-inline-item ml-offset-1 mr-0">
-                                <img class="img-fluid avatar-md avatar-bordered rounded-circle"
-                                     src="{% static 'assets/img/avatar-4.jpg' %}" alt="">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            	{% for review in customer_reviews %}
+	                <div class="col-lg-4 mb-5">
+	                    <div class="card border-0 radius-bottom-right shadow-soft h-100">
+	                        <div class="card-body p-5">
+	                            <ul class="list-inline text-warning">
+	                                <li class="list-inline-item mx-0">
+	                                    <span class="fas fa-star"></span>
+	                                </li>
+	                                <li class="list-inline-item mx-0">
+	                                    <span class="fas fa-star"></span>
+	                                </li>
+	                                <li class="list-inline-item mx-0">
+	                                    <span class="fas fa-star"></span>
+	                                </li>
+	                                <li class="list-inline-item mx-0">
+	                                    <span class="fas fa-star"></span>
+	                                </li>
+	                                <li class="list-inline-item mx-0">
+	                                    <span class="fas fa-star"></span>
+	                                </li>
+	                            </ul>
+	                            <p class=" mb-0">{{ review.comment }}</p>
+	                        </div>
+	                        <div class="card-footer border-0  pt-0 px-5 pb-5">
+	                            <div class="media">
+	                                <div class="avatar-sm mr-3">
+	                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-1.jpg' %}" alt="">
+	                                </div>
+	                                <div class="media-body">
+	                                    <h4 class="h6 mb-0">{{ review.full_name }}</h4>
+	                                    <small class="d-block text-muted ">{{ review.job_title }}</small>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+            	{% endfor %}
             </div>
         </div>
     </section>

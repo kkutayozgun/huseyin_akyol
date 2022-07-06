@@ -1,6 +1,6 @@
 from math import ceil
 from django import template
-from page.models import (HomePageSeo, About, Surgery, ChangeJourney, TreatmentPlan, Faq, Image)
+from page.models import (HomePageSeo, About, Surgery, ChangeJourney, TreatmentPlan, Faq, CustomerReview)
 from numpy import array_split
 
 register = template.Library()
@@ -38,3 +38,7 @@ def get_treatment_plan_obj():
 @register.simple_tag
 def get_faq_obj():
     return Faq.objects.all()
+
+@register.simple_tag
+def get_customer_review_obj():
+    return CustomerReview.objects.all()

@@ -516,8 +516,8 @@ div[class*="col-"].spacer-one-top-lg,
 }
 div[class*="col-"].spacer-double-lg,
 .spacer-double-lg {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 div[class*="col-"].spacer-one-bottom-md,
 .spacer-one-bottom-md {
@@ -931,7 +931,7 @@ section.hero, div[class*="col-"].hero {
 
 div[class*="col-"].spacer-double-lg, .spacer-double-lg {
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 6rem;
 }
 .vertical-line-divider:after{
     display: block;

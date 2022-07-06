@@ -13,6 +13,9 @@ class KVKKPageSeo(TranslatableModel, SEOStarterModel):
     )
     banner_image = models.ImageField(_("Banner Image"), upload_to="about/banner", blank=True, null=True)
 
+    def __str__(self):
+        return _("KVKK Sayfası")
+
     class Meta:
         verbose_name = _("KVKK Sayfası SEO")
         verbose_name_plural = _("KVKK Sayfası SEO")
