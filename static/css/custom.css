@@ -86,7 +86,21 @@
 
 .journeyslider .swiper-slide img {
 	object-fit: cover;
-	height: 15rem;
+	height: 20rem;
+	border-radius: 0.75rem;
+}
+.journeyslider-mobile .swiper-slide {
+	text-align: center;
+}
+.journeyslider .swiper-slide .journey-slide-container {
+	display: -webkit-box !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+	padding: 1.8rem 3rem 1.8rem 3.15rem;
+}
+
+.img-round {
+	border-radius: 1rem!important;
 }
 
 @media (min-width: 768px) {
@@ -99,3 +113,5 @@
 		display: none;
 	}
 }
+
+/*popup değişim oylculuğu*/

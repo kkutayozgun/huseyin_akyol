@@ -87,21 +87,8 @@
 	          prevEl: ".swiper-button-prev",
 	        }
 	      });
-    	var journeyslider = new Swiper(".journeyslider-large", {
-	        slidesPerView: 8,
-	        spaceBetween: 10,
-	        navigation: {
-	          nextEl: ".swiper-button-next",
-	          prevEl: ".swiper-button-prev",
-	        },
-	        pagination: {
-	          el: ".swiper-pagination",
-	          clickable: true,
-	        },
-	      });
-    	var journeysliderSmall = new Swiper(".journeyslider-mobile", {
-	        slidesPerView: 4,
-	        spaceBetween: 10,
+    	var journeysliderSmall = new Swiper(".journeyslider", {
+	        slidesPerView: 1,
 	        navigation: {
 	          nextEl: ".swiper-button-next",
 	          prevEl: ".swiper-button-prev",

@@ -1,27 +1,36 @@
+{% load homepage %}
 {% load static i18n %}
 
 <section id="changejourney" class="spacer-double-lg">
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="mb-5 pb-5 text-center">
+                <div class="mb-5 text-center">
                     <h2 class="display-4">{% trans "Değişim Yolculuğu" %}</h2>
                     <p class="w-md-60 mx-auto mb-0 lead ">{% trans "Daha sağlıklı ve konforlu bir yaşam için adım atan hastalarımızı keşfedin!" %}</p>
                 </div>
             </div>
             <div class="h-lmd col-12">
-                <div class="swiper journeyslider journeyslider-large">
-                    <div class="swiper-wrapper">
-                        {% for journey in change_journey %}
-                            <div class="swiper-slide">
-                                <img class="img-fluid" src="{{ journey.image.url }}">
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                </div>
+            	{% with journey_groups=change_journey|pieces:4 %}
+	                <div class="swiper journeyslider journeyslider-large">
+	                    <div class="swiper-wrapper">
+	                        {% for journey_group in journey_groups %}
+	                            <div class="swiper-slide">
+                    				<div class="journey-slide-container">
+		                        		{% for journey in journey_group %}
+		                                	<div class="col-3 p-1">
+		                                		<img class="img-fluid" src="{{ journey.image.url }}">
+		                                	</div>
+		                        		{% endfor %}
+                					</div>
+	                            </div>
+	                        {% endfor %}
+	                    </div>
+	                    <div class="swiper-button-next"></div>
+	                    <div class="swiper-button-prev"></div>
+	                    <div class="swiper-pagination"></div>
+	                </div>
+                {% endwith %}
             </div>
             <div class="h-hmd col-12">
                 <div class="swiper journeyslider journeyslider-mobile">
