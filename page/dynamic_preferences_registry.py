@@ -55,3 +55,12 @@ class TwitterLink(StringPreference):
     name = 'twitter_link'
     default = ""
     verbose_name = _("Twitter Link")
+
+
+
+@global_preferences_registry.register
+class YoutubeLink(StringPreference):
+    section = page
+    name = 'youtube_link'
+    default = ""
+    verbose_name = _("Youtube Link")
