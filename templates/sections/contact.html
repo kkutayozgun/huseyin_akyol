@@ -1,0 +1,44 @@
+{% load i18n %}
+<section id="contact" class="bg-primary-2 spacer-double-lg">
+    <div class="container position-relative z-index-2">
+        <div class="row justify-content-lg-between align-items-center">
+            <div class="col-lg-5  text-white mb-7 mb-lg-0">
+                <div class="mb-6">
+                    <h2 class="h1 text-white ">{% trans "Size yardımcı olmak için buradayız!" %}</h2>
+                    <p class="text-white">{% trans "Obezite ve Metabolik Cerrahi talepleriniz için formu doldurmanız yeterli. İletişim birimimiz en kısa süre içerisinde tarafınıza geri dönüş sağlayacaktır." %}</p>
+                </div>
+                <div class="row ">
+                    <div class="col-sm-6 mb-5">
+                           <span class="rounded-icon-size-1 bg-soft-white rounded-circle mb-3 d-block">
+                           <span class="fas fa-envelope icon-rounded-inner"></span>
+                           </span>
+                        <h4 class="h5 mb-0 text-white">{% trans "E-posta" %}</h4>
+                        <a class="text-white-70 font-size-15"
+                           href="mailto:{{ global_preferences.page__email_address }}">
+                            {{ global_preferences.page__email_address }}</a>
+                    </div>
+                    <div class="col-sm-6 mb-5">
+                           <span class="rounded-icon-size-1 bg-soft-white rounded-circle mb-3 d-block">
+                           <span class="fas fa-phone icon-rounded-inner"></span>
+                           </span>
+                        <h4 class="h5 mb-0 text-white">{% trans "Telefon" %}</h4>
+                        <a class="text-white-70 font-size-15"
+                           href="tel:{{ global_preferences.page__phone_number|cut:' ' }}">
+                            {{ global_preferences.page__phone_number }}</a>
+                    </div>
+                    <div class="col-sm-6">
+                           <span class="rounded-icon-size-1 bg-soft-white rounded-circle mb-3 d-block">
+                           <span class="fas fa-map-marker-alt icon-rounded-inner"></span>
+                           </span>
+                        <h4 class="h5 mb-0 text-white">{% trans "Adresimiz" %}</h4>
+                        <a class="text-white-70 font-size-15" href="#">Cumhuriyet Mahallesi. Atatürk Cad. No:19 Daire:
+                            23 İstanbul/Türkiye</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                {% include "components/partials/form.html" with intro="Formu doldurun, size ulaşalım!" form_cls="card border-0 shadow-soft p-6" phone_input_id="contact-phone-2" %}
+            </div>
+        </div>
+    </div>
+</section>

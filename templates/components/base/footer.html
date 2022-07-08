@@ -4,26 +4,26 @@
 <footer class="container spacer-double-md">
     <div class="row text-center">
         <div class="col">
-            <button type="button"
+            <a role="button" href="{{ global_preferences.page__whatsapp_link }}" target="_blank"
                     class="btn font-weight-400 font-size-16 btn-secondary btn-radius-bottom-left text-left mb-2 mb-sm-0 mr-1">
                   <span class="media align-items-center mn-top">
-                  <span class="fab fa-apple font-size-24 mr-3"></span>
+                  <span class="fab fa-whatsapp font-size-24 mr-3"></span>
                   <span class="media-body">
                   <span class="d-block">{% trans "WhatsApp" %}</span>
                   <strong class="font-size-15 mn-top">{% trans "İçin Tıklayın" %}</strong>
                   </span>
                   </span>
-            </button>
-            <button type="button"
+            </a>
+            <a role="button" href="tel:{{ global_preferences.page__phone_number|cut:' ' }}"
                     class="btn font-weight-400 font-size-16 btn-primary btn-radius-bottom-right text-left mb-2 mb-sm-0 ml-1">
                   <span class="media align-items-center mn-top">
-                  <span class="fab fa-google-play font-size-24 mr-3"></span>
+                  <span class="fa fa-phone font-size-24 mr-3"></span>
                   <span class="media-body">
                   <span class="d-block">{% trans "Detaylar için" %}</span>
                   <strong class="font-size-15 mn-top">{% trans "Bizi Arayın" %}</strong>
                   </span>
                   </span>
-            </button>
+            </a>
         </div>
     </div>
     <div class="row">

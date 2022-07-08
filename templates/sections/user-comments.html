@@ -1,0 +1,53 @@
+{% load static i18n %}
+<section id="stories" class="spacer-double-lg bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="mb-5 pb-5 text-center">
+                    <h2 class="display-4">{% trans "Customers love Foxecoach" %}</h2>
+                    <p class="w-md-60 mx-auto mb-0 lead">{% trans "Our work with clients has always been at the intersection of deep industry expertise and extensive capabilities." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for review in customer_reviews %}
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 radius-bottom-right shadow-soft h-100">
+                        <div class="card-body p-5">
+                            <ul class="list-inline text-warning">
+                                <li class="list-inline-item mx-0">
+                                    <span class="fas fa-star"></span>
+                                </li>
+                                <li class="list-inline-item mx-0">
+                                    <span class="fas fa-star"></span>
+                                </li>
+                                <li class="list-inline-item mx-0">
+                                    <span class="fas fa-star"></span>
+                                </li>
+                                <li class="list-inline-item mx-0">
+                                    <span class="fas fa-star"></span>
+                                </li>
+                                <li class="list-inline-item mx-0">
+                                    <span class="fas fa-star"></span>
+                                </li>
+                            </ul>
+                            <p class=" mb-0">{{ review.comment }}</p>
+                        </div>
+                        <div class="card-footer border-0  pt-0 px-5 pb-5">
+                            <div class="media">
+                                <div class="avatar-sm mr-3">
+                                    <img class="img-fluid rounded-circle" src="{% static 'assets/img/avatar-1.jpg' %}"
+                                         alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="h6 mb-0">{{ review.full_name }}</h4>
+                                    <small class="d-block text-muted ">{{ review.job_title }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

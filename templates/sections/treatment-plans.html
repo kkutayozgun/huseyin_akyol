@@ -1,0 +1,55 @@
+{% load i18n static %}
+
+<section id="packages" class="bg-primary mt-n spacer-double-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="mb-5 pb-5 text-center">
+                    <h2 class="display-4 text-white">{% trans "Tedavi Planları" %}</h2>
+                    <p class="w-md-60 mx-auto mb-0 lead text-white">{% trans "Obezite ve Metabolik Cerrahi ameliyat planı, tedavi süreci, transfer ve konaklama sürecini nasıl planlamak istersiniz?" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            {% for plan in treatment_plan %}
+                <div class="col-sm-9 col-md-6 col-lg-4 mb-3 mb-md-4 mb-lg-0  mb-5 mb-lg-0">
+                    <div class="card border-0">
+                        <header class="card-header border-0 position-relative bg-primary-2 text-white p-6 pb-7 ">
+                            <h3 class="mb-1 text-white">{{ plan.name }}</h3>
+                            <span class="d-block">
+            		           </span>
+                        </header>
+                        <div class="position-relative">
+                            <div class="edge-shape edge-shape-bottom ">
+                                <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 331.2047 58" enable-background="new 0 0 331.2047 58"
+                                     xml:space="preserve">
+            		                 <g>
+            		                    <polygon points="331.2047,0 331.2047,58 0,58  "/>
+            		                 </g>
+            		              </svg>
+                            </div>
+                        </div>
+                        <div class="card-body px-6 pb-5">
+                            <ul class="list-group list-group-flush  mb-4">
+                                {% for item in plan.treatmentplanitem_set.all %}
+                                    <li class="list-group-item">
+                                        <div class="d-flex align-items-center">
+	            		                    <span class="rounded-icon-size-2 bg-soft-primary-2 rounded-circle mr-3">
+	            		                    <span class="fas fa-check icon-rounded-inner"></span>
+	            		                    </span>
+                                            <h6>{{ item.info }}</h6>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <button type="button" class="btn  btn-block btn-soft-primary btn-radius-bottom-right"><a
+                                    href="#contact" class="mn-top scroll">{% trans "Fiyat Al" %}</a></button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

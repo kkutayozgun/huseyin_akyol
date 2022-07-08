@@ -1,0 +1,42 @@
+{% load static i18n %}
+
+<section id="changejourney" class="spacer-double-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="mb-5 pb-5 text-center">
+                    <h2 class="display-4">{% trans "Değişim Yolculuğu" %}</h2>
+                    <p class="w-md-60 mx-auto mb-0 lead ">{% trans "Daha sağlıklı ve konforlu bir yaşam için adım atan hastalarımızı keşfedin!" %}</p>
+                </div>
+            </div>
+            <div class="h-lmd col-12">
+                <div class="swiper journeyslider journeyslider-large">
+                    <div class="swiper-wrapper">
+                        {% for journey in change_journey %}
+                            <div class="swiper-slide">
+                                <img class="img-fluid" src="{{ journey.image.url }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="h-hmd col-12">
+                <div class="swiper journeyslider journeyslider-mobile">
+                    <div class="swiper-wrapper">
+                        {% for journey in change_journey %}
+                            <div class="swiper-slide">
+                                <img class="img-fluid" src="{{ journey.image.url }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

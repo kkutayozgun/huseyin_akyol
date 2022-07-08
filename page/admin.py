@@ -38,6 +38,7 @@ class HomeSlidesInline(admin.TabularInline):
 @admin.register(HomePageSeo)
 class HomePageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
+        (_('Page Information'), {'fields': ('title_intro', 'title', 'description', 'bottom_content')}),
         (_("Seo Information"), {'fields': seo_fields}),
     )
     inlines = [HomeSlidesInline]

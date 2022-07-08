@@ -1,0 +1,35 @@
+{% load static %}
+
+<script src="{% static 'js/plugins/phonePlugin.js' %}"></script>
+
+<script>
+    var input = document.querySelector("#contact-phone");
+    var input2 = document.querySelector("#contact-phone-2");
+
+    const inputConf = {
+        allowDropdown: true,
+        formatOnDisplay: true,
+        hiddenInput: "contact-full_number",
+        initialCountry: "{% if LANGUAGE_CODE == 'en' %}us{% else %}{{ LANGUAGE_CODE }}{% endif %}",
+        placeholderNumberType: "MOBILE",
+        preferredCountries: ['us', 'tr', 'de', 'it', 'es', 'ru'],
+        separateDialCode: true,
+        utilsScript: "{% static 'js/plugins/phone.js' %}",
+    }
+    if (input) {
+        window.intlTelInput(input, inputConf);
+    }
+    if (input2) {
+        window.intlTelInput(input2, inputConf);
+    }
+
+
+    $(document).on('submit', '#form-contact', function (e) {
+        let phoneInput = $('[name=contact-full_number]').val()
+        if (!phoneInput.includes('+')) {
+            $('#contact-Phone').addClass('is-invalid');
+            $('#contact-Phone-error').removeClass('d-none');
+            e.preventDefault();
+        }
+    })
+</script>

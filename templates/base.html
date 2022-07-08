@@ -23,7 +23,10 @@
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{% static 'css/fonts.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="stylesheet" href="{% static 'css/phonePlugin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/phone_input.css' %}">
     <link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css" media="all"/>
+
     <link href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700" rel="stylesheet">
 </head>
@@ -35,7 +38,20 @@
 
     {% include "components/base/footer.html" %}
     <a class="scroll-to-top scroll" href="#wrapper"><span class=" fas fa-arrow-up top-icon "></span></a>
-    <a href="https://api.whatsapp.com/send?phone=00905324113381" class="whatsapp-fixed scroll" href="#wrapper"><span class="fab fa-whatsapp top-icon "></span></a>
+
+    <a href="{{ global_preferences.page__whatsapp_link }}" class="sticky-button whatsapp-fixed scroll">
+        <span class="fab fa-whatsapp top-icon "></span>
+    </a>
+    <a href="{{ global_preferences.page__facebook_link }}" class="sticky-button facebook-fixed scroll">
+        <span class="fab fa-facebook-f top-icon "></span>
+    </a>
+    <a href="{{ global_preferences.page__instagram_link }}" class="sticky-button instagram-fixed scroll">
+        <span class="fab fa-instagram top-icon "></span>
+    </a>
+    <a href="{{ global_preferences.page__twitter_link }}" class="sticky-button twitter-fixed scroll">
+        <span class="fab fa-twitter top-icon "></span>
+    </a>
+
 </div>
 <!--Javascript-->
 <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
@@ -49,6 +65,9 @@
 <script src="{% static 'js/script.js' %}"></script>
 <!-- Google analytics -->
 <!-- End google analytics -->
+
+{% include "components/phone-script.html" %}
+
 </body>
 </html>
 
