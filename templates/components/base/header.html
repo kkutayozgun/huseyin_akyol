@@ -18,8 +18,8 @@
                 </button>
                 <div class="nav-menu collapse navbar-collapse navbar-collapse justify-content-end py-0 ">
                     <ul class=" navbar-nav  header-navbar-nav">
-                        <li><a class="nav-link scroll" href="{{ home_url }}#home">{% trans "Ana sayfa" %}</a>
-                        </li>
+{#                        <li><a class="nav-link scroll" href="{{ home_url }}#home">{% trans "Ana sayfa" %}</a>#}
+{#                        </li>#}
                         <li><a class="nav-link scroll" href="{{ home_url }}#about">{% trans "Hakkımda"%}</a>
                         </li>
                         <li><a class="nav-link scroll" href="{{ home_url }}#changeyourlife">
@@ -30,11 +30,10 @@
                         </li>
                         <li><a class="nav-link scroll" href="{{ home_url }}#packages">{% trans "Tedavi Planı"%}</a>
                         </li>
-                        <li><a class="nav-link scroll" href="{{ home_url }}#faq">{% trans "SSS"%}</a>
-                        </li>
                         <li class="mb-3 mb-lg-0"><a class="nav-link scroll" href="{{ home_url }}#contact">
                             {% trans "İletişim"%}</a>
                         </li>
+                        {% include "components/base/language_dropdown.html" %}
                     </ul>
                 </div>
             </nav>
