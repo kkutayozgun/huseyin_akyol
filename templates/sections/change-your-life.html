@@ -34,10 +34,10 @@
         		<div class="swiper-button-next"></div>
         		<div class="swiper-button-prev"></div>
         	</div>
+            {% endwith %}
         	<div class="swiper d-md-none groupslider">
         		<div class="swiper-wrapper">
-            	{% for surgery_group in surgery_groups %}
-	            	{% for sblock in surgery_group %}
+            	{% for sblock in surgery %}
 	                <div class="swiper-slide col-md-4 mb-4 mb-lg-0">
 	                    <div class="position-relative px-3">
 	                        <div class="position-relative z-index-2">
@@ -47,13 +47,11 @@
 	                        </div>
 	                    </div>
 	                </div>
-	            	{% endfor %}
             	{% endfor %}
 	            </div>
         		<div class="swiper-button-next"></div>
         		<div class="swiper-button-prev"></div>
         	</div>
-            {% endwith %}
             <div class="row">
                 <div class="col">
                     <div class="mt-6 pt-6 text-center"><a href="call:+905324113381"

@@ -1,4 +1,5 @@
 {% load static i18n %}
+{% load homepage %}
 <section id="stories" class="spacer-double-lg bg-secondary">
     <div class="container">
         <div class="row">
@@ -10,40 +11,60 @@
             </div>
         </div>
         <div class="row">
-            {% for review in customer_reviews %}
-                <div class="col-lg-4 mb-5">
-                    <div class="card border-0 radius-bottom-right shadow-soft h-100">
-                        <div class="card-body p-5">
-                            <ul class="list-inline text-warning">
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                                <li class="list-inline-item mx-0">
-                                    <span class="fas fa-star"></span>
-                                </li>
-                            </ul>
-                            <p class=" mb-0">{{ review.comment }}</p>
-                        </div>
-                        <div class="card-footer border-0  pt-0 px-5 pb-5">
-                            <div class="media">
-                                <div class="media-body">
-                                    <h4 class="h6 mb-0">{{ review.full_name }}</h4>
-                                    <small class="d-block text-muted ">{{ review.job_title }}</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+            {% with review_groups=customer_reviews|pieces:3 %}
+        	<div class="swiper d-none d-lg-block groupslider">
+        		<div class="swiper-wrapper ">
+            	{% for review_group in review_groups %}
+    			    <div class="row m-0 px-6 swiper-slide">
+    					{% for review in review_group %}
+    			        <div class="col-4">
+    			        	<div class="card border-0 radius-bottom-right shadow-soft h-100">
+    			        	    <div class="card-body p-5">
+    			        	    	{% include "components/partials/stars.html" %}
+    			        	        <p class=" mb-0">{{ review.comment }}</p>
+    			        	    </div>
+    			        	    <div class="card-footer border-0  pt-0 px-5 pb-5">
+    			        	        <div class="media">
+    			        	            <div class="media-body">
+    			        	                <h4 class="h6 mb-0">{{ review.full_name }}</h4>
+    			        	                <small class="d-block text-muted ">{{ review.job_title }}</small>
+    			        	            </div>
+    			        	        </div>
+    			        	    </div>
+    			        	</div>
+	    			    </div>
+    					{% endfor %}
+			        </div>
+    			{% endfor %}
+	            </div>
+        		<div class="swiper-button-next"></div>
+        		<div class="swiper-button-prev"></div>
+        	</div>
+            {% endwith %}
+        	<div class="swiper d-lg-none groupslider">
+        		<div class="swiper-wrapper">
+        			{% for review in customer_reviews %}
+        			    <div class="px-6 swiper-slide">
+        			        <div class="card border-0 radius-bottom-right shadow-soft h-100">
+        			            <div class="card-body p-5">
+        			            	{% include "components/partials/stars.html" %}
+        			                <p class=" mb-0">{{ review.comment }}</p>
+        			            </div>
+        			            <div class="card-footer border-0  pt-0 px-5 pb-5">
+        			                <div class="media">
+        			                    <div class="media-body">
+        			                        <h4 class="h6 mb-0">{{ review.full_name }}</h4>
+        			                        <small class="d-block text-muted ">{{ review.job_title }}</small>
+        			                    </div>
+        			                </div>
+        			            </div>
+        			        </div>
+        			    </div>
+        			{% endfor %}
+	            </div>
+        		<div class="swiper-button-next"></div>
+        		<div class="swiper-button-prev"></div>
+        	</div>
         </div>
     </div>
 </section>

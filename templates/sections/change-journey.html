@@ -19,7 +19,7 @@
                     				<div class="journey-slide-container">
 		                        		{% for journey in journey_group %}
 		                                	<div class="col-3 p-1">
-		                                		<img class="img-fluid" src="{{ journey.image.url }}">
+		                                		<img class="img-fluid" src="{{ journey.image.url }}" data-toggle="modal" data-target="#imgPopup">
 		                                	</div>
 		                        		{% endfor %}
                 					</div>
@@ -37,7 +37,7 @@
                     <div class="swiper-wrapper">
                         {% for journey in change_journey %}
                             <div class="swiper-slide">
-                                <img class="img-fluid" src="{{ journey.image.url }}">
+                                <img class="img-fluid" src="{{ journey.image.url }}" data-toggle="modal" data-target="#imgPopup">
                             </div>
                         {% endfor %}
                     </div>

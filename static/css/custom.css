@@ -114,4 +114,28 @@
 	}
 }
 
-/*popup değişim oylculuğu*/
+.modal-open #imgPopup {
+   z-index: 1050;
+}
+#imgPopup {
+  z-index: -1;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+#imgPopup.show .modal-dialog {
+	transform: translate(0, 0%);
+}
+#imgPopup .modal-dialog {
+    max-width: 100%;
+    width: auto !important;
+    display: inline-block;
+}
+#imgPopup .close{
+	position: absolute;
+	right: 1.6rem;
+	font-size: 35px;
+}
+#imgPopup #popup-img-holder{
+	max-width: 100%;
+}

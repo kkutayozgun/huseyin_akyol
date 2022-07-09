@@ -98,6 +98,13 @@
 	          clickable: true,
 	        },
 	      });
-    });
+
+    	const imgHolder = $('#popup-img-holder')
+
+	    $('#imgPopup').on('show.bs.modal', function (e) {
+	    	imgHolder[0].src === e.relatedTarget.src || imgHolder.attr('src', e.relatedTarget.src)
+	    })
+
+	});
 
 })(jQuery);
