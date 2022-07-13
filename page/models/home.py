@@ -16,6 +16,7 @@ class Image(models.Model):
         verbose_name = _("Resim")
         verbose_name_plural = _("Resimler")
 
+
 class HomePageSeo(TranslatableModel, SEOStarterModel):
     slides = models.ManyToManyField(Image, related_name="intro_slides", through="HomePageSeoSlides")
     translations = TranslatedFields(
@@ -26,12 +27,17 @@ class HomePageSeo(TranslatableModel, SEOStarterModel):
         bottom_content=models.TextField(_("Alt Bant İçeriği"), default="", blank=True),
     )
 
+    @property
+    def slide_items(self):
+        return self.homepageseoslides_set.all()
+
     def __str__(self):
         return _tr("Anasayfa Giriş Bloku ve SEO")
 
     class Meta:
         verbose_name = _("Anasayfa Giriş Bloku")
         verbose_name_plural = _("Anasayfa Giriş Bloku")
+
 
 class About(TranslatableModel):
     slides = models.ManyToManyField(Image, related_name="about_slides", through="AboutSlides")
@@ -50,42 +56,53 @@ class About(TranslatableModel):
         verbose_name = _("Hakkımızda")
         verbose_name_plural = _("Hakkımızda")
 
+
 class AboutList(TranslatableModel):
     about = models.ForeignKey(About, verbose_name=_("Hakkımızda"), on_delete=models.CASCADE)
     translations = TranslatedFields(
         info=models.CharField(_("Madde"), default="", blank=False, max_length=100),
     )
+
     class Meta:
         verbose_name = _("Hakkımızda Maddeler")
         verbose_name_plural = _("Hakkımızda Maddeler")
 
+
 # slide relations
-class HomePageSeoSlides(models.Model):
-    home=models.ForeignKey(HomePageSeo, on_delete=models.CASCADE)
-    image=models.ForeignKey(Image, on_delete=models.CASCADE)
+class HomePageSeoSlides(TranslatableModel, models.Model):
+    home = models.ForeignKey(HomePageSeo, on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    translations = TranslatedFields(
+        title_intro=models.CharField(_("Başlık Girişi"), default="", blank=True, max_length=60),
+        title=models.CharField(_("Başlık"), default="", blank=True, max_length=80),
+        description=models.TextField(_("Açıklama"), default="", blank=True)
+    )
 
     def __str__(self):
         return _tr("Anasayfa Giriş Blok Slaytları")
 
+
 class AboutSlides(models.Model):
-    about=models.ForeignKey(About, related_name="about_slides", on_delete=models.CASCADE)
-    image=models.ForeignKey(Image, on_delete=models.CASCADE)
+    about = models.ForeignKey(About, related_name="about_slides", on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
 
     def __str__(self):
         return _tr("Hakkımızda Üst Kısım Slaytlar")
 
+
 class AboutBottomSlides(models.Model):
-    about=models.ForeignKey(About, related_name="about_slides_bottom", on_delete=models.CASCADE)
-    image=models.ForeignKey(Image, on_delete=models.CASCADE)
+    about = models.ForeignKey(About, related_name="about_slides_bottom", on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
 
     def __str__(self):
         return _tr("Hakkımızda Alt Kısım Slaytları")
+
 
 class Surgery(TranslatableModel):
     translations = TranslatedFields(
         title=models.CharField(_("Başlık"), default="", blank=True, max_length=80),
         description=models.TextField(_("Açıklama"), default="", blank=True),
-        image = models.ImageField(_("Resim"), upload_to="surgery", blank=False)
+        image=models.ImageField(_("Resim"), upload_to="surgery", blank=False)
     )
 
     class Meta:
@@ -113,6 +130,7 @@ class TreatmentPlan(TranslatableModel):
         verbose_name = _("Tedavi Planı")
         verbose_name_plural = _("Tedavi Planları")
 
+
 class TreatmentPlanItem(TranslatableModel):
     treatment_plan = models.ForeignKey(TreatmentPlan, verbose_name=_("Tedavi Planı"), on_delete=models.CASCADE)
     translations = TranslatedFields(
@@ -132,6 +150,7 @@ class Faq(TranslatableModel):
         question=models.CharField(_("Soru"), blank=False, max_length=150),
         answer=models.TextField(_("Cevap"), blank=False),
     )
+
     class Meta:
         verbose_name = _("Sık Sorulan Soru")
         verbose_name_plural = _("Sık Sorulan Sorular")
@@ -143,6 +162,7 @@ class CustomerReview(TranslatableModel):
         job_title=models.CharField(_("Meslek"), blank=False, max_length=80),
         comment=models.CharField(_("Yorum"), blank=False, max_length=250),
     )
+
     class Meta:
         verbose_name = _("Müşteri İncelemesi")
         verbose_name_plural = _("Müşteri İncelemeleri")

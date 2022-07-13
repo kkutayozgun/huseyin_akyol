@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-from parler.admin import TranslatableAdmin, TranslatableTabularInline
+from parler.admin import TranslatableAdmin, TranslatableTabularInline, TranslatableStackedInline
 
 from page.models import (Keywords, seo_translations, HomePageSeo, About, AboutList, Image,
                          HomePageSeoSlides, AboutSlides, AboutBottomSlides,
@@ -32,7 +32,7 @@ class OneEntityModel(admin.ModelAdmin):
             return False
         return super().has_add_permission(request)
 
-class HomeSlidesInline(admin.TabularInline):
+class HomeSlidesInline(TranslatableStackedInline):
     model = HomePageSeoSlides
 
 @admin.register(HomePageSeo)

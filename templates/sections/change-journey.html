@@ -12,7 +12,7 @@
             </div>
             <div class="h-lmd col-12">
             	{% with journey_groups=change_journey|pieces:4 %}
-	                <div class="swiper journeyslider journeyslider-large">
+	                <div class="swiper journeyslider journeyslider-large pagination-outside">
 	                    <div class="swiper-wrapper">
 	                        {% for journey_group in journey_groups %}
 	                            <div class="swiper-slide">
@@ -28,12 +28,12 @@
 	                    </div>
 	                    <div class="swiper-button-next"></div>
 	                    <div class="swiper-button-prev"></div>
-	                    <div class="swiper-pagination"></div>
+	                    <div class="swiper-pagination place-bottom"></div>
 	                </div>
                 {% endwith %}
             </div>
             <div class="h-hmd col-12">
-                <div class="swiper journeyslider journeyslider-mobile">
+                <div class="swiper journeyslider journeyslider-mobile pagination-outside">
                     <div class="swiper-wrapper">
                         {% for journey in change_journey %}
                             <div class="swiper-slide">

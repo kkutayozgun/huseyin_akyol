@@ -2,61 +2,75 @@
 {% load homepage %}
 
 <section class="border-bottom">
-        <div class="container">
-            <div class="row align-items-stretch">
-                <div class="col-12 col-md-5 offset-md-1 order-md-2">
-                	<div class="swiper d-md-none img-mobile homeswiper hero-img">
-                		<div class="swiper-wrapper">
-                			{% for slide in home.slides.all %}
-                			<div class="swiper-slide">
-                				<img class="d-md-none img-mobile" src="{{ slide.image.url }}" />
-                			</div>
-                			{% endfor %}
-                		</div>
-                		<div class="swiper-button-next"></div>
-                		<div class="swiper-button-prev"></div>
-                		<div class="swiper-pagination"></div>
-                	</div>
-                    <div class="position-relative h-100 vw-50 d-none d-md-block">
-                    	<div class="swiper homeswiper bg-image">
-                    		<div class="swiper-wrapper">
-                    			{% for slide in home.slides.all %}
-                    			<div class="swiper-slide">
-                    				<img class="bg-image" src="{{ slide.image.url }}" />
-                    			</div>
-                    			{% endfor %}
-                    		</div>
-                    		<div class="swiper-pagination"></div>
-                    	</div>
-                        <div class="edge-shape edge-shape-left ">
-                            <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                 viewBox="0 0 57.8622 890.587" enable-background="new 0 0 57.8622 890.587"
-                                 xml:space="preserve">
+    <div class="container">
+        <div class="row align-items-stretch">
+            <div class="col-12 col-md-5 offset-md-1 order-md-2">
+                <div class="swiper d-md-none img-mobile homeswiper hero-img">
+                    <div class="swiper-wrapper">
+                        {% for slide in home.slides.all %}
+                            <div class="swiper-slide">
+                                <img class="d-md-none img-mobile" src="{{ slide.image.url }}"/>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="position-relative h-100 vw-50 d-none d-md-block">
+                    <div class="swiper homeswiper bg-image">
+                        <div class="swiper-wrapper">
+                            {% for slide in home.slides.all %}
+                                <div class="swiper-slide">
+                                    <img class="bg-image" src="{{ slide.image.url }}"/>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="edge-shape edge-shape-left ">
+                        <svg version="1.1" class="svg-white" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 57.8622 890.587" enable-background="new 0 0 57.8622 890.587"
+                             xml:space="preserve">
                               <g>
                                  <polygon points="0,0 0,890.587 57.8622,0.4021   "/>
                               </g>
                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 hero order-md-1 ">
-                    <div class="text-secondary text-uppercase font-weight-700  mb-0">{{ home.title_intro }}</div>
-                    <div class="pr-7">
-                        <h1 class="display-3">
-                            {{ home.title }}
-                        </h1>
-                        <p class="lead mb-3">
-                            {{ home.description}}
-                        </p>
-                        <p class="lead text-dark font-weight-bold mb-3">
-                            {% trans "Uzmanlarımız sizinle iletişime geçecektir." %}
-                        </p>
-                    </div>
-                    <div class="pr-10">
-                        {% include "components/partials/form.html" with intro="" append_btn_class="col-12" %}
                     </div>
                 </div>
             </div>
+
+            <div class="col-12 col-md-6 hero order-md-1 ">
+                <div class="swiper homeswiper_text">
+                    <div class="swiper-wrapper">
+                        {% for slide in home.slide_items %}
+                            <div class="swiper-slide">
+                                <div class="bg-white">
+                                    <div class="text-secondary text-uppercase font-weight-700 mb-0">{{ slide.title_intro }}</div>
+                                    <div class="pr-7">
+                                        <h1 class="display-3">
+                                            {{ slide.title }}
+                                        </h1>
+                                        <p class="lead mb-3">
+                                            {{ slide.description }}
+                                        </p>
+                                        <p class="lead text-dark font-weight-bold">
+                                            {% trans "Uzmanlarımız sizinle iletişime geçecektir." %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+
+                <div class="pr-10">
+                    {% include "components/partials/form.html" with intro="" append_btn_class="col-12" %}
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
