@@ -1,4 +1,6 @@
 {% load i18n %}
+{% load homepage %}
+
 <form class="{{ form_cls }}" action="{% url 'handle_contact_form' %}" method="POST">
     {% csrf_token %}
     <div class="mb-4">
@@ -20,8 +22,9 @@
             <div class="input-group">
                 <select name="treatment" class="custom-select">
                     <option selected="" value="">{% trans "Tedavi Tercihiniz" %}</option>
-                    {% for plan in treatment_plan %}
-                    	<option value="{{ plan.name }}">{{ plan.name }}</option>
+                    {% get_surgery_obj as surgery_plans %}
+                    {% for plan in surgery_plans %}
+                    	<option value="{{ plan.title }}">{{ plan.title }}</option>
 					{% endfor %}
                 </select>
             </div>

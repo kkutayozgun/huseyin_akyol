@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'rosetta',
     'parler',
+    'django_extensions',
 
     # Project Apps:
     'page'

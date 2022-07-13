@@ -6,6 +6,24 @@
     height: auto;
     margin-left: calc(50% - 50vw);
 }
+
+.homeswiper_text .swiper-slide{
+	visibility: hidden;
+}
+
+.homeswiper_text .swiper-slide.swiper-slide-active{
+	visibility: visible;
+}
+
+.swiper-pagination-bullet-active{
+	color: #173967;
+	background-color: #173967 !important;
+}
+
+.swiper.pagination-outside {
+    padding-bottom: 40px !important;
+}
+
 .edge-shape.edge-shape-bottom {
 	margin-bottom: -1px;
 }

@@ -1,11 +1,11 @@
 {% load i18n %}
 {% load homepage %}
 {% load static %}
-<section id="changeyourlife" class="bg-secondary spacer-double-lg">
+<section id="changeyourlife" class="bg-secondary spacer-double-lg pt-3 pt-md-5">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="mb-5 pb-5 text-center">
+                    <div class="text-center">
                         <h2 class="display-4">{% trans "Obezite ve Metabolik Cerrahi" %}</h2>
                         <p class="w-md-60 mx-auto mb-0 lead ">{% trans "Op. Dr. Hüseyin Akyol, tüm obezite ve metabolik cerrahi süreçlerinde en yüksek standartlar ve teknolojilerle hizmet sunmaktadır. Size hangi konuda yardımcı olabiliriz?" %}</p>
                     </div>
@@ -54,11 +54,13 @@
         	</div>
             <div class="row">
                 <div class="col">
-                    <div class="mt-6 pt-6 text-center"><a href="call:+905324113381"
-                            class="mr-2 btn btn-primary btn-radius-bottom-left mb-2 mb-sm-0" href="#">
+                    <div class="my-md-3 py-md-3 text-center">
+                        <a href="tel:{{ global_preferences.page__phone_number|cut:' ' }}"
+                            class="mr-2 btn btn-primary btn-radius-bottom-left">
                         <span class="mn-top">{% trans "Bizi Arayın" %}</span>
                     </a>
-                        <a class="scroll btn btn-secondary btn-radius-bottom-right mb-2 mb-sm-0" href="#">
+                        <a class="scroll btn btn-secondary btn-radius-bottom-right"
+                           href="{{ global_preferences.page__whatsapp_link }}">
                             <span class="mn-top">{% trans "Bize Yazın" %}</span>
                         </a>
                     </div>

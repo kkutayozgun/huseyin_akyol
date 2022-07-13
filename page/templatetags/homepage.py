@@ -17,7 +17,7 @@ def pieces(collection, num):
 
 @register.simple_tag
 def get_home_obj():
-    return HomePageSeo.objects.prefetch_related('slides').first()
+    return HomePageSeo.objects.first()
 
 @register.simple_tag
 def get_about_obj():
