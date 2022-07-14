@@ -69,7 +69,7 @@ class FaqAdmin(TranslatableAdmin):
     list_display = ['question']
 
 @admin.register(ChangeJourney)
-class ChangeJourneyAdmin(admin.ModelAdmin):
+class ChangeJourneyAdmin(TranslatableAdmin):
     pass
 
 

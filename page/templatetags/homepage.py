@@ -13,6 +13,8 @@ def chunk(collection, num):
 def pieces(collection, num):
     total = len(collection)
     chunk_size = ceil(total/num)
+    if chunk_size <= 0:
+        chunk_size = 1
     return array_split(collection, chunk_size)
 
 @register.simple_tag

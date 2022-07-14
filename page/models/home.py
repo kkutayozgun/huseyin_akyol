@@ -110,8 +110,10 @@ class Surgery(TranslatableModel):
         verbose_name_plural = _("Obezite ve Metabolik Cerrahi Blokları")
 
 
-class ChangeJourney(models.Model):
-    image = models.ImageField(_("Resim"), upload_to="change-journey", blank=False)
+class ChangeJourney(TranslatableModel):
+    translations = TranslatedFields(
+        image=models.ImageField(_("Resim"), upload_to="change-journey", blank=False)
+    )
 
     def __str__(self):
         return _tr("Değişim Yolculuğu")
