@@ -11,6 +11,12 @@
 	margin-bottom: 4rem !important;
 }
 
+@media (max-width: 1200px) {
+	.display-25 {
+		font-size: 2.5rem;
+	}
+}
+
 .homeswiper_text .swiper-slide{
 	visibility: hidden;
 }

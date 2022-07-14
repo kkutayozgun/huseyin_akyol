@@ -44,8 +44,12 @@
                                     </li>
                                 {% endfor %}
                             </ul>
-                            <button type="button" class="btn  btn-block btn-soft-primary btn-radius-bottom-right"><a
-                                    href="#contact" class="mn-top scroll">{% trans "Fiyat Al" %}</a></button>
+                            <button type="button" class="btn  btn-block btn-soft-primary btn-radius-bottom-right">
+                                <a href="{{ global_preferences.page__whatsapp_link }}" class="mn-top scroll"
+                                   target="_blank">
+                                    {% trans "Fiyat Al" %}
+                                </a>
+                            </button>
                         </div>
                     </div>
                 </div>
