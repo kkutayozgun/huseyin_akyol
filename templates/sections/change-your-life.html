@@ -2,69 +2,75 @@
 {% load homepage %}
 {% load static %}
 <section id="changeyourlife" class="bg-secondary spacer-double-lg pt-3 pt-md-5">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="text-center">
-                        <h2 class="display-4">{% trans "Obezite ve Metabolik Cerrahi" %}</h2>
-                        <p class="w-md-60 mx-auto mb-0 lead ">{% trans "Op. Dr. Hüseyin Akyol, tüm obezite ve metabolik cerrahi süreçlerinde en yüksek standartlar ve teknolojilerle hizmet sunmaktadır. Size hangi konuda yardımcı olabiliriz?" %}</p>
-                    </div>
-                </div>
-            </div>
-
-            {% with surgery_groups=surgery|pieces:3 %}
-        	<div class="swiper d-none d-md-block groupslider">
-        		<div class="swiper-wrapper ">
-            	{% for surgery_group in surgery_groups %}
-        			<div class="row m-0 swiper-slide">
-		            	{% for sblock in surgery_group %}
-		                <div class="col-md-4 mb-4 mb-lg-0">
-		                    <div class="position-relative px-3">
-		                        <div class="position-relative z-index-2">
-		                            <h4>{{ sblock.title }}</h4>
-		                            <p class="mb-6 ">{{ sblock.description }}</p>
-		                            <img src="{{ sblock.image.url }}" alt="" class="img-fluid rounded {% cycle 'radius-top-left' 'radius-bottom-right' 'radius-top-right' %} z-index-2 ">
-		                        </div>
-		                    </div>
-		                </div>
-		            	{% endfor %}
-	                </div>
-            	{% endfor %}
-	            </div>
-        		<div class="swiper-button-next"></div>
-        		<div class="swiper-button-prev"></div>
-        	</div>
-            {% endwith %}
-        	<div class="swiper d-md-none groupslider">
-        		<div class="swiper-wrapper">
-            	{% for sblock in surgery %}
-	                <div class="swiper-slide col-md-4 mb-4 mb-lg-0">
-	                    <div class="position-relative px-3">
-	                        <div class="position-relative z-index-2">
-	                            <h4>{{ sblock.title }}</h4>
-	                            <p class="mb-6 ">{{ sblock.description }}</p>
-	                            <img src="{{ sblock.image.url }}" class="img-fluid img-mobile img-round m-0 z-index-2 ">
-	                        </div>
-	                    </div>
-	                </div>
-            	{% endfor %}
-	            </div>
-        		<div class="swiper-button-next"></div>
-        		<div class="swiper-button-prev"></div>
-        	</div>
-            <div class="row">
-                <div class="col">
-                    <div class="my-md-3 py-md-3 text-center">
-                        <a href="tel:{{ global_preferences.page__phone_number|cut:' ' }}"
-                            class="mr-2 btn btn-primary btn-radius-bottom-left">
-                        <span class="mn-top">{% trans "Bizi Arayın" %}</span>
-                    </a>
-                        <a class="scroll btn btn-secondary btn-radius-bottom-right"
-                           href="{{ global_preferences.page__whatsapp_link }}">
-                            <span class="mn-top">{% trans "Bize Yazın" %}</span>
-                        </a>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="text-center">
+                    <h2 class="display-4">{% trans "Obezite ve Metabolik Cerrahi" %}</h2>
+                    <p class="w-md-60 mx-auto mb-7 lead ">
+                        {% blocktrans trimmed %}
+                            Op. Dr. Hüseyin Akyol, tüm obezite ve metabolik cerrahi süreçlerinde en yüksek standartlar
+                            ve teknolojilerle hizmet sunmaktadır. Size hangi konuda yardımcı olabiliriz?
+                        {% endblocktrans %}
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+
+        {% with surgery_groups=surgery|pieces:3 %}
+            <div class="swiper d-none d-md-block groupslider">
+                <div class="swiper-wrapper ">
+                    {% for surgery_group in surgery_groups %}
+                        <div class="row m-0 swiper-slide">
+                            {% for sblock in surgery_group %}
+                                <div class="col-md-4 mb-4 mb-lg-0">
+                                    <div class="position-relative px-3">
+                                        <div class="position-relative z-index-2">
+                                            <h4>{{ sblock.title }}</h4>
+                                            <p class="mb-6 ">{{ sblock.description }}</p>
+                                            <img src="{{ sblock.image.url }}" alt=""
+                                                 class="img-fluid rounded {% cycle 'radius-top-left' 'radius-bottom-right' 'radius-top-right' %} z-index-2 ">
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        {% endwith %}
+        <div class="swiper d-md-none groupslider">
+            <div class="swiper-wrapper">
+                {% for sblock in surgery %}
+                    <div class="swiper-slide col-md-4 mb-4 mb-lg-0">
+                        <div class="position-relative px-3">
+                            <div class="position-relative z-index-2">
+                                <h4>{{ sblock.title }}</h4>
+                                <p class="mb-6 ">{{ sblock.description }}</p>
+                                <img src="{{ sblock.image.url }}" class="img-fluid img-mobile img-round m-0 z-index-2 ">
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="my-md-3 py-md-3 text-center">
+                    <a href="tel:{{ global_preferences.page__phone_number|cut:' ' }}"
+                       class="mr-2 btn btn-primary btn-radius-bottom-left">
+                        <span class="mn-top">{% trans "Bizi Arayın" %}</span>
+                    </a>
+                    <a class="scroll btn btn-secondary btn-radius-bottom-right"
+                       href="{{ global_preferences.page__whatsapp_link }}">
+                        <span class="mn-top">{% trans "Bize Yazın" %}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

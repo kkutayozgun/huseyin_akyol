@@ -10,12 +10,12 @@
 
 {% block content %}
     {% get_home_obj as home %}
-	{% get_about_obj as about %}
-	{% get_surgery_obj as surgery %}
-	{% get_change_journey_obj as change_journey %}
-	{% get_treatment_plan_obj as treatment_plan %}
-	{% get_customer_review_obj as customer_reviews %}
-	{% get_faq_obj as faq %}
+    {% get_about_obj as about %}
+    {% get_surgery_obj as surgery %}
+    {% get_change_journey_obj as change_journey %}
+    {% get_treatment_plan_obj as treatment_plan %}
+    {% get_customer_review_obj as customer_reviews %}
+    {% get_faq_obj as faq %}
 
     {% include "sections/hero.html" %}
 
@@ -23,7 +23,12 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <p class="text-white">{% trans "Obezite ve metabolik cerrahi çözümlerimiz ile tedavi yolculuğunuz boyunca yanınızdayız. Yüksek donanımlı hastane, tecrübeli ekimiz ve hiç eksik etmeyeceğimiz güler yüzümüzle size yardımcı olmak için hazırız!" %}</p>
+                    <p class="text-white">
+                        {% blocktrans trimmed %}
+                            Obezite ve metabolik cerrahi çözümlerimiz ile tedavi yolculuğunuz boyunca yanınızdayız.
+                            Yüksek donanımlı A-plus hastanemiz ve deneyimli ekibimizle size yardımcı olmaya hazırız.
+                        {% endblocktrans %}
+                    </p>
                 </div>
             </div>
         </div>

@@ -7,6 +7,10 @@
     margin-left: calc(50% - 50vw);
 }
 
+.mb-7{
+	margin-bottom: 4rem !important;
+}
+
 .homeswiper_text .swiper-slide{
 	visibility: hidden;
 }
