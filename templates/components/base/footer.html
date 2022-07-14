@@ -5,7 +5,7 @@
     <div class="row text-center">
         <div class="col">
             <a role="button" href="{{ global_preferences.page__whatsapp_link }}" target="_blank"
-                    class="btn font-weight-400 font-size-16 btn-secondary btn-radius-bottom-left text-left mb-2 mb-sm-0 mr-1">
+               class="btn font-weight-400 font-size-16 btn-secondary btn-radius-bottom-left text-left mb-2 mb-sm-0 mr-1">
                   <span class="media align-items-center mn-top">
                   <span class="fab fa-whatsapp font-size-24 mr-3"></span>
                   <span class="media-body">
@@ -15,12 +15,14 @@
                   </span>
             </a>
             <a role="button" href="tel:{{ global_preferences.page__phone_number|cut:' ' }}"
-                    class="btn font-weight-400 font-size-16 btn-primary btn-radius-bottom-right text-left mb-2 mb-sm-0 ml-1">
+               class="btn font-weight-400 font-size-16 btn-primary btn-radius-bottom-right text-left mb-2 mb-sm-0 ml-1">
                   <span class="media align-items-center mn-top">
                   <span class="fa fa-phone font-size-24 mr-3"></span>
                   <span class="media-body">
-                  <span class="d-block">{% trans "Detaylar için" %}</span>
-                  <strong class="font-size-15 mn-top">{% trans "Bizi Arayın" %}</strong>
+                      {% blocktrans trimmed %}
+                          <span class="d-block">Detaylar için</span>
+                          <strong class="font-size-15 mn-top">Bizi Arayın</strong>
+                      {% endblocktrans %}
                   </span>
                   </span>
             </a>
@@ -34,7 +36,8 @@
     <div class="row align-items-md-center">
         <div class="col-md-4 mb-4 mb-md-0">
             <div class="d-flex align-items-center">
-                <p class="font-size-14 mb-0"><a class="text-muted" href="https://theblackcapmedia.com/" target="_blank">Site by Black Cap Media</a>
+                <p class="font-size-14 mb-0"><a class="text-muted" href="https://theblackcapmedia.com/" target="_blank">Site
+                    by Black Cap Media</a>
                 </p>
             </div>
         </div>
