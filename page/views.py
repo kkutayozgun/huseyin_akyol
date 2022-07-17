@@ -18,9 +18,7 @@ class ContactFormEmailView(HandleEmailFormView):
             "first_name": request.POST.get('first_name', ""),
             "last_name": request.POST.get('last_name', ""),
             "email": request.POST.get('email', ""),
-            "treatment": request.POST.get('treatment', ""),
             "full_phone_number": request.POST.get('contact-full_number', ""),
             "phone": request.POST.get('phone', ""),
-            "via": request.POST.get('via', ""),
             "message": request.POST.get('message', "")
         }

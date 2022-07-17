@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext as _tr
 from parler.models import TranslatableModel, TranslatedFields
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -14,7 +15,7 @@ class KVKKPageSeo(TranslatableModel, SEOStarterModel):
     banner_image = models.ImageField(_("Banner Image"), upload_to="about/banner", blank=True, null=True)
 
     def __str__(self):
-        return _("KVKK Sayfası")
+        return _tr("KVKK Sayfası")
 
     class Meta:
         verbose_name = _("KVKK Sayfası SEO")

@@ -30,17 +30,6 @@
         </div>
         <div class="col-md-6 mb-3">
             <div class="input-group">
-                <select name="treatment" class="custom-select">
-                    <option selected="" value="">{% trans "Tedavi Tercihiniz" %}</option>
-                    {% get_surgery_obj as surgery_plans %}
-                    {% for plan in surgery_plans %}
-                    	<option value="{{ plan.title }}">{{ plan.title }}</option>
-					{% endfor %}
-                </select>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="input-group">
                 <input type="text" required class="form-control" name="email" placeholder="{% trans 'E-posta' %}">
             </div>
         </div>
@@ -49,11 +38,6 @@
                 <input id="{{ phone_input_id|default:'contact-phone' }}" type="text" required class="form-control"
                        name="phone"
                        placeholder="{% trans 'Telefon' %}">
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="input-group">
-                <input type="text" required class="form-control" name="via" placeholder="{% trans 'Bize Nerden Ulaştınız?' %}">
             </div>
         </div>
     </div>
